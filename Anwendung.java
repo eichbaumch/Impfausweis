@@ -26,13 +26,13 @@ public class Anwendung
         Liste.add(A);
    }
 
-    public void PatientSuchen(String Name)
+    public Patient PatientSuchen(String Name)
    {
        for (Patient e: Liste)
        {
            if (e.getPatientenname().equals(Name))
             {
-                Liste.get(e);
+                return e;
             }
             else 
             System.out.println("Der Patient ist nicht verfügbar");
@@ -42,12 +42,13 @@ public class Anwendung
 
     public void PatientLoeschen(String Name)
     {
-
+        Patient H = PatientSuchen(Name);
+        Liste.remove(H);
     }
 
     public void Impfen(Patient B, StdImpfung C)
     {
-
+        
     }
 
     public void StatusAbfragen(Patient D)
