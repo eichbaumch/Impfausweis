@@ -8,6 +8,7 @@
 public class StdImpfung
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
+<<<<<<< HEAD
     protected String Impfname;
     protected String Information;
     public int Abstand;
@@ -41,4 +42,27 @@ public class StdImpfung
     
     
     
+=======
+    private int x;
+    /**
+     * Konstruktor für Objekte der Klasse StdImpfung
+     */
+    public StdImpfung()
+    {
+        // Instanzvariable initialisieren
+        x = 0;
+    }
+
+    /**
+     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
+     * 
+     * @param  y    ein Beispielparameter für eine Methode
+     * @return        die Summe aus x und y
+     */
+    public int beispielMethode(int y)
+    {
+        // tragen Sie hier den Code ein
+        return x + y;
+    }
+>>>>>>> 93de58789969c556eeb12e39ac1282055cb79542
 }

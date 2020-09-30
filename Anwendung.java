@@ -5,29 +5,55 @@
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
+import java.util.ArrayList;
+import java.util.Date;
 public class Anwendung
-{
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
 
-    /**
-     * Konstruktor für Objekte der Klasse Anwendung
-     */
+{
+
+    private Patient A;
+    private ArrayList<Patient>Liste;
+
     public Anwendung()
     {
-        // Instanzvariable initialisieren
-        x = 0;
+        Liste=new ArrayList<Patient>();
+
     }
 
-    /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
-     * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
-     */
-    public int beispielMethode(int y)
+    public void PatientHinzufügen(String Name, String Geburtstag, String Geschlecht, String Adresse, String Telefonnummer)
     {
-        // tragen Sie hier den Code ein
-        return x + y;
+        A= new Patient(Name,Geburtstag,Geschlecht,Adresse,Telefonnummer);
+        Liste.add(A);
+   }
+
+    public Patient PatientSuchen(String Name)
+   {
+       
+       for (Patient e: Liste)
+       {
+           if (e.getPatientenname().equals(Name))
+            {
+                return e;
+            }
+        }
+        System.out.println("Der Patient ist nicht verfügbar");
+        return null;
+    }
+
+    public void PatientLoeschen(String Name)
+    {
+        Patient H = PatientSuchen(Name);
+        Liste.remove(H);
+        System.out.println("Der Patient wurde erfolgreich gelöscht.");
+    }
+
+    public void Impfen(Patient B, StdImpfung C)
+    {
+        
+    }
+
+    public void StatusAbfragen(Patient D)
+    {
+
     }
 }
