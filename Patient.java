@@ -8,13 +8,12 @@
 public class Patient
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private String Name;
-    private 
+   // private String Name;
+    //private 
 
     /**
      * Konstruktor für Objekte der Klasse Patient
      */
-    public Patient()
-    {
-       
-}
+   // public Patient()
+  //  {
+    }
