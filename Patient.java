@@ -1,4 +1,3 @@
-
 /**
  * Beschreiben Sie hier die Klasse Patient.
  * 
@@ -8,16 +7,12 @@
 
 public class Patient
 {
-
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private String Patientenname, Geburtsdatum, Geschlecht, Adresse;
-    private int Telefonnummer;
+    private String Patientenname, Geburtsdatum, Geschlecht, Adresse, Telefonnummer;
 
     /**
      * Konstruktor für Objekte der Klasse Patient
      */
-
-    public Patient(String Patientenname, String Geburtsdatum, String Geschlecht, String Adresse, int Telefonnummer)
+    public Patient(String Patientenname, String Geburtsdatum, String Geschlecht, String Adresse, String Telefonnummer)
     {
         this.Patientenname = Patientenname;
         this.Geburtsdatum = Geburtsdatum;
@@ -25,63 +20,146 @@ public class Patient
         this.Adresse = Adresse;
         this.Telefonnummer = Telefonnummer;
     }
-      
+    
+    
+     
+    /**
+     * Gibt aktuellen Status aller Impfungen auf dem Bildschirm aus
+     * @param keine
+     * @return keine
+     */
     public void Impfuebersicht()
     {
         
     }
     
-    public void InformationenAbfragen()
+    /**
+     * Gibt Informationen über einzelne Impfungen auf dem Bildschirm aus
+     * 
+     * @param Objekt aus StdImpfung (impfname)
+     * @return keine
+     */
+    public void InformationenAbfragen(StdImpfung Impfung)
     {
-        
+        System.out.println(Impfung.getInformation());
     }
     
+    /**
+     * Ändert den Patienenname
+     * 
+     * @param neuerName
+     * @return keine
+     * 
+     */
     public void setPatientenname(String neuerName)
     {
         Patientenname = neuerName;
     }
     
+    /**
+     * Ändert das Geburtsdatum
+     * 
+     * @param neuesGeburtsdatum
+     * @return keine
+     * 
+     */
     public void setGeburtsdatum(String neuesGeburtsdatum)
     {
         Geburtsdatum = neuesGeburtsdatum;
     }
     
+    /**
+     * Ändert das Geschlecht
+     * 
+     * @param neuesGeschlecht
+     * @return keine
+     * 
+     */
     public void setGeschlecht(String neuesGeschlecht)
     {
         Geschlecht = neuesGeschlecht;
     }
     
+    /**
+     * Ändert die Adresse
+     * 
+     * @param neueAdresse
+     * @return keine
+     * 
+     */
     public void setAdresse(String neueAdresse)
     {
         Adresse = neueAdresse;
     }
     
-    public void setTelefonnummer(int neueTelefonnummer)
+    /**
+     * Ändert die Telefonnummer
+     * 
+     * @param neueTelefonnummer
+     * @return keine
+     * 
+     */
+    public void setTelefonnummer(String neueTelefonnummer)
     {
         Telefonnummer = neueTelefonnummer;
     }
     
+    /**
+     * Gibt den Patientennamen aus
+     * 
+     * @param keine
+     * @return Patientenname
+     * 
+     */
     public String getPatientenname()
     {
         return Patientenname;
     }
     
+    /**
+     * Gibt das Geburtsdatum aus
+     * 
+     * @param keine
+     * @return Geburtsdatum
+     * 
+     */
     public String getGeburtsdatum()
     {
         return Geburtsdatum;
     }
     
+    /**
+     * Gibt das Geschlecht aus
+     * 
+     * @param keine
+     * @return Geschlecht
+     * 
+     */
     public String getGeschlecht()
     {
         return Geschlecht;
     }
     
+    /**
+     * Gibt die Adresse aus
+     * 
+     * @param keine
+     * @return Adresse
+     * 
+     */
     public String getAdresse()
     {
         return Adresse;
     }
     
-    public int getTelefonnummer()
+    /**
+     * Gibt die Telefonnummer aus
+     * 
+     * @param keine
+     * @return Telefonnummer
+     * 
+     */
+    public String getTelefonnummer()
     {
         return Telefonnummer;
     }
