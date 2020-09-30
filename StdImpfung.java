@@ -8,26 +8,37 @@
 public class StdImpfung
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
+    protected String Impfname;
+    protected String Information;
+    public int Abstand;
+    public int letzteImpfung;
+    public int Impfstatus;
 
-    /**
-     * Konstruktor für Objekte der Klasse StdImpfung
-     */
+    
     public StdImpfung()
     {
-        // Instanzvariable initialisieren
-        x = 0;
+       this.Impfname=Impfname;
+        this.Information= Information;
+        this.Abstand= Abstand;
+        this.Impfstatus=Impfstatus;
     }
-
-    /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
-     * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
-     */
-    public int beispielMethode(int y)
+    
+    public String getInformation()
     {
-        // tragen Sie hier den Code ein
-        return x + y;
+       HepatitisA Infos = new HepatitisA();
+        
+        String a=Infos.getInfo();
+        return a;
     }
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
