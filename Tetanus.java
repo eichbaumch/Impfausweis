@@ -1,11 +1,11 @@
 
 /**
- * Beschreiben Sie hier die Klasse HepatitisB.
+ * Beschreiben Sie hier die Klasse Tetanus.
  * 
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class HepatitisB extends StdImpfung
+public class Tetanus extends StdImpfung
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     
@@ -13,12 +13,12 @@ public class HepatitisB extends StdImpfung
     /**
      * Konstruktor für Objekte der Klasse HepatitisB
      */
-    public HepatitisB()
+    public Tetanus()
     {
         // Instanzvariable initialisieren
-        Impfname="HepatitisB";
-        Information="häufiges Reisen/Kontakt zu Kranken/geschwächte Immunabwehr";
-        Abstand=2; //2. 4. 6. Monat
+        Impfname="Tetanus";
+        Information="verhindert Wundstarrkrampf durch Erreger";
+        Abstand=2; // ??
         letzteImpfung=15;
         Impfstatus=0;
     }

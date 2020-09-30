@@ -7,62 +7,50 @@
  */
 public class StdImpfung
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-<<<<<<< HEAD
+    
+
     protected String Impfname;
     protected String Information;
     public int Abstand;
     public int letzteImpfung;
     public int Impfstatus;
 
-    
     public StdImpfung()
     {
-       this.Impfname=Impfname;
+        this.Impfname=Impfname;
         this.Information= Information;
         this.Abstand= Abstand;
         this.Impfstatus=Impfstatus;
     }
-    
+
     public String getInformation()
     {
-       HepatitisA Infos = new HepatitisA();
-        
-        String a=Infos.getInfo();
-        return a;
-    }
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-=======
-    private int x;
-    /**
-     * Konstruktor für Objekte der Klasse StdImpfung
-     */
-    public StdImpfung()
-    {
-        // Instanzvariable initialisieren
-        x = 0;
+        HepatitisA InfosA = new HepatitisA();
+        String a=InfosA.getInfo();
+        HepatitisB InfosB=new HepatitisB();        
+        String a1=InfosB.getInfo();
+
+        System.out.println("Information HepatitisA: " + a);
+        System.out.println("Information HepatitisB: " + a1);
+        return a+a1;
     }
 
-    /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
-     * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
-     */
-    public int beispielMethode(int y)
+    public String getName()
     {
-        // tragen Sie hier den Code ein
-        return x + y;
+        HepatitisA NameA=new HepatitisA();
+        String b=NameA.getName();
+        HepatitisB NameB=new HepatitisB();
+        String b1=NameB.getName();
+        
+        System.out.println("Impfname: " + b);
+        System.out.println("Impfname: " + b1);
+        return b+b1;
     }
->>>>>>> 93de58789969c556eeb12e39ac1282055cb79542
+
+    
+    
+    
+    
+    
+    
 }

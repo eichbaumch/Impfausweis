@@ -1,11 +1,11 @@
 
 /**
- * Beschreiben Sie hier die Klasse HepatitisB.
+ * Beschreiben Sie hier die Klasse Roeteln.
  * 
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class HepatitisB extends StdImpfung
+public class Roeteln extends StdImpfung
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     
@@ -13,12 +13,12 @@ public class HepatitisB extends StdImpfung
     /**
      * Konstruktor für Objekte der Klasse HepatitisB
      */
-    public HepatitisB()
+    public Roeteln()
     {
         // Instanzvariable initialisieren
-        Impfname="HepatitisB";
-        Information="häufiges Reisen/Kontakt zu Kranken/geschwächte Immunabwehr";
-        Abstand=2; //2. 4. 6. Monat
+        Impfname="Röteln";
+        Information="erwachsene Frauen/Kontakt mit Kleinkindern&Schwangeren";
+        Abstand=4; //11. und 15. Monat
         letzteImpfung=15;
         Impfstatus=0;
     }

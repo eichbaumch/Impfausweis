@@ -21,8 +21,8 @@ public class HepatitisA extends StdImpfung
     {
         // Instanzvariable initialisieren
         Impfname="HepatitisA";
-        Information="Test";
-        Abstand=11;
+        Information="bei häufigem Reisen/Kontakt zu Kranken; immun:25-40Jahre";
+        Abstand=6; //Monate
         letzteImpfung=12;
         Impfstatus=0;
             }
