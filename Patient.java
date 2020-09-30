@@ -20,9 +20,37 @@ public class Patient
         this.Adresse = Adresse;
         this.Telefonnummer = Telefonnummer;
     }
-    
-    
-     
+
+    public void HepatitisAImpfen()
+    {
+
+    }
+
+    public void HepatitisBImpfen()
+    {
+
+    }
+
+    public void MasernImpfen()
+    {
+
+    }
+
+    public void MumpsImpfen()
+    {
+
+    }
+
+    public void RötelnImpfen()
+    {
+
+    }
+
+    public void TetanusImpfen()
+    {
+
+    }
+
     /**
      * Gibt aktuellen Status aller Impfungen auf dem Bildschirm aus
      * @param keine
@@ -30,9 +58,9 @@ public class Patient
      */
     public void Impfuebersicht()
     {
-        
+
     }
-    
+
     /**
      * Gibt Informationen über einzelne Impfungen auf dem Bildschirm aus
      * 
@@ -43,7 +71,7 @@ public class Patient
     {
         System.out.println(Impfung.getInformation());
     }
-    
+
     /**
      * Ändert den Patienenname
      * 
@@ -55,7 +83,7 @@ public class Patient
     {
         Patientenname = neuerName;
     }
-    
+
     /**
      * Ändert das Geburtsdatum
      * 
@@ -67,7 +95,7 @@ public class Patient
     {
         Geburtsdatum = neuesGeburtsdatum;
     }
-    
+
     /**
      * Ändert das Geschlecht
      * 
@@ -79,7 +107,7 @@ public class Patient
     {
         Geschlecht = neuesGeschlecht;
     }
-    
+
     /**
      * Ändert die Adresse
      * 
@@ -91,7 +119,7 @@ public class Patient
     {
         Adresse = neueAdresse;
     }
-    
+
     /**
      * Ändert die Telefonnummer
      * 
@@ -103,7 +131,7 @@ public class Patient
     {
         Telefonnummer = neueTelefonnummer;
     }
-    
+
     /**
      * Gibt den Patientennamen aus
      * 
@@ -115,7 +143,7 @@ public class Patient
     {
         return Patientenname;
     }
-    
+
     /**
      * Gibt das Geburtsdatum aus
      * 
@@ -127,7 +155,7 @@ public class Patient
     {
         return Geburtsdatum;
     }
-    
+
     /**
      * Gibt das Geschlecht aus
      * 
@@ -139,7 +167,7 @@ public class Patient
     {
         return Geschlecht;
     }
-    
+
     /**
      * Gibt die Adresse aus
      * 
@@ -151,7 +179,7 @@ public class Patient
     {
         return Adresse;
     }
-    
+
     /**
      * Gibt die Telefonnummer aus
      * 
@@ -164,4 +192,3 @@ public class Patient
         return Telefonnummer;
     }
 }
-
