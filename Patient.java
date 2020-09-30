@@ -1,8 +1,8 @@
 /**
  * Beschreiben Sie hier die Klasse Patient.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author (Konrad Sautter, Pascale Gülcher, Hannah Schweitz, Sophia Parpoulas, Lena Speiser, Christopher Eichbaum) 
+ * @version (30.09.2020)
  */
 
 public class Patient
@@ -67,19 +67,11 @@ public class Patient
      * @param Objekt aus StdImpfung (impfname)
      * @return keine
      */
-<<<<<<< HEAD
-    //public void InformationenAbfragen(StdImpfung Impfung)
-    //{
-      //  System.out.println(Impfung.getInformation());
-    //}
-    
-=======
-    public void InformationenAbfragen(StdImpfung Impfung)
+    public void InformationenAbfragen()//StdImpfung Impfung
     {
-        System.out.println(Impfung.getInformation());
+        //System.out.println(Impfung.getInformation());
     }
 
->>>>>>> ef8e1a178fd8a149c7f5c4cc0bfb4dfdefa084f6
     /**
      * Ändert den Patienenname
      * 
