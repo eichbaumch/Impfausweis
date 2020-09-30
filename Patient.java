@@ -39,10 +39,10 @@ public class Patient
      * @param Objekt aus StdImpfung (impfname)
      * @return keine
      */
-    public void InformationenAbfragen(StdImpfung Impfung)
-    {
-        System.out.println(Impfung.getInformation());
-    }
+    //public void InformationenAbfragen(StdImpfung Impfung)
+    //{
+      //  System.out.println(Impfung.getInformation());
+    //}
     
     /**
      * Ändert den Patienenname

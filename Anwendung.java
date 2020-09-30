@@ -28,22 +28,23 @@ public class Anwendung
 
     public Patient PatientSuchen(String Name)
    {
+       
        for (Patient e: Liste)
        {
            if (e.getPatientenname().equals(Name))
             {
                 return e;
             }
-            else 
-            System.out.println("Der Patient ist nicht verfügbar");
-
         }
+        System.out.println("Der Patient ist nicht verfügbar");
+        return null;
     }
 
     public void PatientLoeschen(String Name)
     {
         Patient H = PatientSuchen(Name);
         Liste.remove(H);
+        System.out.println("Der Patient wurde erfolgreich gelöscht.");
     }
 
     public void Impfen(Patient B, StdImpfung C)
