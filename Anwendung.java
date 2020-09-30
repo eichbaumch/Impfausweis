@@ -28,9 +28,9 @@ public class Anwendung
 
     public void PatientSuchen(String Name)
    {
-       for (Patient e:Liste)
+       for (Patient e: Liste)
        {
-           if (e.Patientenname==Name)
+           if (e.getPatientenname().equals(Name))
             {
                 Liste.get(e);
             }

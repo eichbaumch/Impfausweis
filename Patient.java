@@ -9,6 +9,14 @@
 public class Patient
 {
 
+    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
+    private String Patientenname, Geburtsdatum, Geschlecht, Adresse;
+    private int Telefonnummer;
+
+    /**
+     * Konstruktor für Objekte der Klasse Patient
+     */
+
     public Patient(String Patientenname, String Geburtsdatum, String Geschlecht, String Adresse, int Telefonnummer)
     {
         this.Patientenname = Patientenname;
