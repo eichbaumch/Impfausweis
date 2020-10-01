@@ -20,7 +20,7 @@ public class Anwendung
 
     }
 
-    public void PatientHinzufügen(String Name, String Geburtstag, String Geschlecht, String Adresse, String Telefonnummer)
+    public void PatientHinzufuegen(String Name, String Geburtstag, String Geschlecht, String Adresse, String Telefonnummer)
     {
         A= new Patient(Name,Geburtstag,Geschlecht,Adresse,Telefonnummer);
         Liste.add(A);
