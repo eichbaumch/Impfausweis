@@ -11,7 +11,7 @@ public class Anwendung
 
 {
 
-    private Patient A;
+   
     private ArrayList<Patient>Liste;
 
     public Anwendung()
@@ -22,7 +22,7 @@ public class Anwendung
 
     public void PatientHinzufuegen(String Name, String Geburtstag, String Geschlecht, String Adresse, String Telefonnummer)
     {
-        A= new Patient(Name,Geburtstag,Geschlecht,Adresse,Telefonnummer);
+        Patient A= new Patient(Name,Geburtstag,Geschlecht,Adresse,Telefonnummer);
         Liste.add(A);
    }
 
