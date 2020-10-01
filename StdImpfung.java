@@ -54,14 +54,6 @@ public class StdImpfung
                             break;
         }
         
-        HashMap<String, StdImpfung>HashImpfungen= new HashMap<String, StdImpfung>();
-        HashImpfungen.put("HepatitisA", new StdImpfung("HepatitisA"));
-        HashImpfungen.put("HepatitisB", new StdImpfung("HepatitisB"));
-        HashImpfungen.put("Mumps", new StdImpfung("Mumps"));
-        HashImpfungen.put("Röteln", new StdImpfung("Röteln"));
-        HashImpfungen.put("Masern", new StdImpfung("Masern"));
-        HashImpfungen.put("Tetanus", new StdImpfung("Tetanus"));
-        
         
     }
     
