@@ -41,27 +41,27 @@ public class Patient
       
     }
 
-    public void HepatitisBImpfen()
+    public void HepatitisBImpfen(String Impfname)
     {
 
     }
 
-    public void MasernImpfen()
+    public void MasernImpfen(String Impfname)
     {
 
     }
 
-    public void MumpsImpfen()
+    public void MumpsImpfen(String Impfname)
     {
 
     }
 
-    public void RötelnImpfen()
+    public void RoetelnImpfen(String Impfname)
     {
 
     }
 
-    public void TetanusImpfen()
+    public void TetanusImpfen(String Impfname)
     {
 
     }
@@ -82,7 +82,7 @@ public class Patient
      * @param Objekt aus StdImpfung (impfname)
      * @return null
      */
-    public String InformationenAbfragen()//StdImpfung Impfung
+    public String Informationsuebersicht()//StdImpfung Impfung
     {
         //System.out.println(Impfung.getInformation());
         return null;

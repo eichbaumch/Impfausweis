@@ -54,6 +54,18 @@ public class Anwendung
         {
             case "HepatitisA": B.HepatitisAImpfen(Impfname);
             break;
+            case "HepatitisB": B.HepatitisBImpfen(Impfname);
+            break;
+            case "Masern": B.MasernImpfen(Impfname);
+            break;
+            case "Mumps": B.MumpsImpfen(Impfname);
+            break;
+            case"Roeteln":B.RoetelnImpfen(Impfname);
+            break;
+            case "Tetanus": B.TetanusImpfen(Impfname);
+            break;
+            
+            
             
         }
     }

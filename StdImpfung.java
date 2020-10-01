@@ -37,7 +37,7 @@ public class StdImpfung
                             Impfstatus=0;
                             break;
                             
-            case "Röteln": Information="Erwachsene Frauen und Personal, welches Kontakt zu Schwangeren und Kleinkindern hat, erste Impfung nach 11 Monaten und die zweite nach 15";
+            case "Roeteln": Information="Erwachsene Frauen und Personal, welches Kontakt zu Schwangeren und Kleinkindern hat, erste Impfung nach 11 Monaten und die zweite nach 15";
                             Abstand=4;
                             letzteImpfung=0;
                             Impfstatus=0;
