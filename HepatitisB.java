@@ -5,6 +5,12 @@
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
+
+import java.text.DateFormat;
+    import java.text.SimpleDateFormat;
+    import java.util.Calendar;
+    import java.util.date;
+    import java.util.GregorianCalendar;
 public class HepatitisB extends StdImpfung
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
@@ -33,5 +39,13 @@ public class HepatitisB extends StdImpfung
         return Information;
     }
     
+    public int getStatus()
+    {
+        return Impfstatus;
+    }
     
+    public static void main (String[]args)
+    {
+        
+    }
 }

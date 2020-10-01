@@ -33,5 +33,8 @@ public class Masern extends StdImpfung
         return Information;
     }
     
-    
+    public int getStatus()
+    {
+        return Impfstatus;
+    }
 }
