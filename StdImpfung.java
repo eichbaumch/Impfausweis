@@ -12,7 +12,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-    
 public class StdImpfung
 {
 
@@ -42,11 +41,12 @@ public class StdImpfung
             Impfstatus=0;
             break;
 
-            case "Röteln": Information="Erwachsene Frauen und Personal, welches Kontakt zu Schwangeren und Kleinkindern hat, erste Impfung nach 11 Monaten und die zweite nach 15";
+            case "Roeteln": Information="Erwachsene Frauen und Personal, welches Kontakt zu Schwangeren und Kleinkindern hat, erste Impfung nach 11 Monaten und die zweite nach 15";
             Abstand=4;
             naechsteImpfung="0";
             Impfstatus=0;
             break;
+            
             case "Masern": Information="Besonders gefährdet sind ungeimpfte Kleinkinder und Jugendliche, erste Impfung nach 13 Monaten und die zweite nach 17 Monaten  ";
             Abstand=4;   
             naechsteImpfung="0";
@@ -58,7 +58,7 @@ public class StdImpfung
             Impfstatus=0;
             break;
         }
-
+        
     }
 
     public String getInformation()
@@ -72,7 +72,6 @@ public class StdImpfung
     }
 
     
-    
     public String setNaechsteImpfung()
     {
         naechsteImpfung=Datum();
@@ -83,66 +82,70 @@ public class StdImpfung
     {
         return Impfstatus;
     }
-    
+
     public void setImpfstatus(int neuerStatus)
     {
-      Impfstatus=neuerStatus;  
+        Impfstatus=neuerStatus;  
     }
 
     public  String Datum ()
     {
         if (Abstand==2)
         {
-        
-        Date now= new Date();
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(now);
 
-        calendar.add(Calendar.DAY_OF_MONTH, 61);
-        Date future = calendar.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        System.out.println ("Now:     "+ dateFormat.format(now));
-        System.out.println("Future:  " + dateFormat.format(future));
-        return dateFormat.format(future);
-    
-    }
+            Date now= new Date();
+            Calendar calendar = new GregorianCalendar();
+            calendar.setTime(now);
+
+            calendar.add(Calendar.DAY_OF_MONTH, 61);
+            Date future = calendar.getTime();
+            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+            System.out.println ("Now:     "+ dateFormat.format(now));
+            System.out.println("Future:  " + dateFormat.format(future));
+            return dateFormat.format(future);
+
+        }
         else if(Abstand==4)
         {
             Date now= new Date();
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(now);
+            Calendar calendar = new GregorianCalendar();
+            calendar.setTime(now);
 
-        calendar.add(Calendar.DAY_OF_MONTH, 122);
-        Date future = calendar.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        System.out.println ("Now:     "+ dateFormat.format(now));
-        System.out.println("Future:  " + dateFormat.format(future));
-        return dateFormat.format(future);
-            
+            calendar.add(Calendar.DAY_OF_MONTH, 122);
+            Date future = calendar.getTime();
+            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+            System.out.println ("Now:     "+ dateFormat.format(now));
+            System.out.println("Future:  " + dateFormat.format(future));
+            return dateFormat.format(future);
+
         }
         else
         if(Abstand==6)
         {
-             Date now= new Date();
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(now);
+            Date now= new Date();
+            Calendar calendar = new GregorianCalendar();
+            calendar.setTime(now);
 
-        calendar.add(Calendar.DAY_OF_MONTH, 180);
-        Date future = calendar.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        System.out.println ("Now:     "+ dateFormat.format(now));
-        System.out.println("Future:  " + dateFormat.format(future));
-        return dateFormat.format(future);
+            calendar.add(Calendar.DAY_OF_MONTH, 180);
+            Date future = calendar.getTime();
+            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+            System.out.println ("Now:     "+ dateFormat.format(now));
+            System.out.println("Future:  " + dateFormat.format(future));
+            return dateFormat.format(future);
         }
-     else
-     System.out.println("Abstand nicht verfügbar");
-     return null;
-     
-        
+        else
+            System.out.println("Abstand nicht verfügbar");
+        return null;
 
+    }
     
-    
+    public String StatusAendern()
+    {
+        if (Impfstatus<3)
+        {
+            Impfstatus= Impfstatus +1;
+        }
+        return null;
     }
 }
-    
 

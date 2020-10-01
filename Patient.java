@@ -1,13 +1,15 @@
+
 /**
  * Beschreiben Sie hier die Klasse Patient.
  * 
  * @author (Konrad Sautter, Pascale Gülcher, Hannah Schweitz, Sophia Parpoulas, Lena Speiser, Christopher Eichbaum) 
  * @version (30.09.2020)
  */
+import java.util.HashMap;
 
 public class Patient
-{
-    private String Patientenname, Geburtsdatum, Geschlecht, Adresse, Telefonnummer;
+{ private String Patientenname, Geburtsdatum, Geschlecht, Adresse, Telefonnummer;
+  private HashMap<String, StdImpfung>HashImpfungen= new HashMap();
 
     /**
      * Konstruktor für Objekte der Klasse Patient
@@ -19,34 +21,47 @@ public class Patient
         this.Geschlecht = Geschlecht;
         this.Adresse = Adresse;
         this.Telefonnummer = Telefonnummer;
+
+        
+        
+        HashImpfungen.put("HepatitisA", new StdImpfung("HepatitisA"));
+        HashImpfungen.put("HepatitisB", new StdImpfung("HepatitisB"));
+        HashImpfungen.put("Mumps", new StdImpfung("Mumps"));
+        HashImpfungen.put("Röteln", new StdImpfung("Röteln"));
+        HashImpfungen.put("Masern", new StdImpfung("Masern"));
+        HashImpfungen.put("Tetanus", new StdImpfung("Tetanus"));
+     
     }
 
-    public void HepatitisAImpfen()
+    public void HepatitisAImpfen(String Impfname)
+    {
+
+       HashImpfungen.get(Impfname);
+      
+      
+    }
+
+    public void HepatitisBImpfen(String Impfname)
     {
 
     }
 
-    public void HepatitisBImpfen()
+    public void MasernImpfen(String Impfname)
     {
 
     }
 
-    public void MasernImpfen()
+    public void MumpsImpfen(String Impfname)
     {
 
     }
 
-    public void MumpsImpfen()
+    public void RoetelnImpfen(String Impfname)
     {
 
     }
 
-    public void RötelnImpfen()
-    {
-
-    }
-
-    public void TetanusImpfen()
+    public void TetanusImpfen(String Impfname)
     {
 
     }
@@ -54,22 +69,23 @@ public class Patient
     /**
      * Gibt aktuellen Status aller Impfungen auf dem Bildschirm aus
      * @param keine
-     * @return keine
+     * @return null
      */
-    public void Impfuebersicht()
+    public String Impfuebersicht()
     {
-
+        return null;
     }
 
     /**
      * Gibt Informationen über einzelne Impfungen auf dem Bildschirm aus
      * 
      * @param Objekt aus StdImpfung (impfname)
-     * @return keine
+     * @return null
      */
-    public void InformationenAbfragen()//StdImpfung Impfung
+    public String Informationsuebersicht()//StdImpfung Impfung
     {
         //System.out.println(Impfung.getInformation());
+        return null;
     }
 
     /**

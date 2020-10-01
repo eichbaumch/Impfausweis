@@ -47,13 +47,38 @@ public class Anwendung
         System.out.println("Der Patient wurde erfolgreich gelöscht.");
     }
 
-    public void Impfen(Patient B, StdImpfung C)
+    public void Impfen(String Patientenname, String Impfname)
     {
-        
+        Patient B= PatientSuchen(Patientenname);
+        switch(Impfname)
+        {
+            case "HepatitisA": B.HepatitisAImpfen(Impfname);
+            break;
+            case "HepatitisB": B.HepatitisBImpfen(Impfname);
+            break;
+            case "Masern": B.MasernImpfen(Impfname);
+            break;
+            case "Mumps": B.MumpsImpfen(Impfname);
+            break;
+            case"Roeteln":B.RoetelnImpfen(Impfname);
+            break;
+            case "Tetanus": B.TetanusImpfen(Impfname);
+            break;
+            
+            
+            
+        }
     }
 
-    public void StatusAbfragen(Patient D)
+    public String StatusAbfragen(Patient D)
     {
-
+        String Status= D.Impfuebersicht();
+        return Status;
+    }
+    
+    public String InformationenAbfragen(Patient E)
+    {
+        String Info= E.Informationsuebersicht();
+        return Info;
     }
 }
