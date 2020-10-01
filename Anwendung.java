@@ -64,7 +64,8 @@ public class Anwendung
             break;
             case "Tetanus": B.TetanusImpfen(Impfname);
             break;
-            
+            default: System.out.println("Impfung nicht vorhanden");
+            break;
             
             
         }
