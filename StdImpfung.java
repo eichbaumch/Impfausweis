@@ -21,19 +21,37 @@ public class StdImpfung
     {
         switch(Impfname)
         {
-            case "HepatitisA": Information="bei";
-                               Abstand=2;
-                               letzteImpfung=29;
+            case "HepatitisA": Information="bei Häufigem Reisen oder Kontakt zu Kranken, Abstand zwischen der ersten und zweiten Impfung 6 Monate";
+                               Abstand=6;
+                               letzteImpfung=0;
                                Impfstatus=0;
                                break;
-            case "HepatitisB": Information="Test2";
-                                Abstand=4;
-                                letzteImpfung=31;
+            case "HepatitisB": Information="Bei häufigem Reisen, geschwächter Immunabwehr und Kontakt zu Kranken, Impfung bei 2, 4 und 6 Monaten";
+                                Abstand=2;
+                                letzteImpfung=0;
                                 Impfstatus=0;
                                 break;
-            case "Mumps": Information=" ";
+            case "Mumps": Information="Viruserkrankung über Tröpfcheninfektion, erste Impfung bei 11 Monaten und zweite bei 15 Monaten ";
+                            Abstand=4;
+                            letzteImpfung=0;
+                            Impfstatus=0;
                             break;
-            
+                            
+            case "Röteln": Information="Erwachsene Frauen und Personal, welches Kontakt zu Schwangeren und Kleinkindern hat, erste Impfung nach 11 Monaten und die zweite nach 15";
+                            Abstand=4;
+                            letzteImpfung=0;
+                            Impfstatus=0;
+                            break;
+            case "Masern": Information="Besonders gefährdet sind ungeimpfte Kleinkinder und Jugendliche, erste Impfung nach 13 Monaten und die zweite nach 17 Monaten  ";
+                            Abstand=4;   
+                            letzteImpfung=0;
+                            Impfstatus=0;
+                            break;
+          case "Tetanus": Information="Soll Wundstarrkrampf durch Krankheitserreger verhindern, erste Impfung nach 2 Monaten, die zweite nach 4 Monaten und die letzte nach 10 Monaten, soll alle 10 Jahre wiederholt werden";
+                            Abstand=2;
+                            letzteImpfung=0;
+                            Impfstatus=0;
+                            break;
         }
         
     }
