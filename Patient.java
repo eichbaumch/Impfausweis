@@ -80,9 +80,10 @@ public class Patient
     }
 
     /**
-     * Gibt aktuellen Status aller Impfungen auf dem Bildschirm aus
-     * @param keine
-     * @return null
+     * Gibt aktuellen Status der eingegebenen Impfung zurück
+     *
+     * @param Impfname
+     * @return ImpfStatus
      */
     public int Impfuebersicht(String Impfname)
     {
@@ -92,12 +93,12 @@ public class Patient
     }
 
     /**
-     * Gibt Informationen über einzelne Impfungen auf dem Bildschirm aus
+     * Gibt Informationen über einzelne Impfungen zurück
      * 
-     * @param Objekt aus StdImpfung (impfname)
-     * @return null
+     * @param Impfname
+     * @return Info
      */
-    public String Informationsuebersicht(String Impfname)//StdImpfung Impfung
+    public String Informationsuebersicht(String Impfname)
     {
         StdImpfung A8= HashImpfungen.get(Impfname);
         String Info= A8.getInformation();
