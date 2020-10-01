@@ -56,9 +56,9 @@ public class Patient
      * @param keine
      * @return keine
      */
-    public void Impfuebersicht()
+    public String Impfuebersicht()
     {
-
+        return null;
     }
 
     /**
@@ -67,9 +67,9 @@ public class Patient
      * @param Objekt aus StdImpfung (impfname)
      * @return keine
      */
-    public void InformationenAbfragen()//StdImpfung Impfung
+    public String Informationsuebersicht()//StdImpfung Impfung
     {
-        //System.out.println(Impfung.getInformation());
+        return null;
     }
 
     /**

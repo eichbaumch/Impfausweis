@@ -52,8 +52,15 @@ public class Anwendung
         
     }
 
-    public void StatusAbfragen(Patient D)
+    public String StatusAbfragen(Patient D)
     {
-
+        String Status= D.Impfuebersicht();
+        return Status;
+    }
+    
+    public String InformationenAbfragen(Patient E)
+    {
+        String Info= E.Informationsuebersicht();
+        return Info;
     }
 }
