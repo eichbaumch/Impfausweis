@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class Patient
 { private String Patientenname, Geburtsdatum, Geschlecht, Adresse, Telefonnummer;
-  private HashMap<String, StdImpfung>HashImpfungen= new HashMap();
+    private HashMap<String, StdImpfung>HashImpfungen= new HashMap();
 
     /**
      * Konstruktor für Objekte der Klasse Patient
@@ -22,48 +22,61 @@ public class Patient
         this.Adresse = Adresse;
         this.Telefonnummer = Telefonnummer;
 
-        
-        
         HashImpfungen.put("HepatitisA", new StdImpfung("HepatitisA"));
         HashImpfungen.put("HepatitisB", new StdImpfung("HepatitisB"));
         HashImpfungen.put("Mumps", new StdImpfung("Mumps"));
         HashImpfungen.put("Röteln", new StdImpfung("Röteln"));
         HashImpfungen.put("Masern", new StdImpfung("Masern"));
         HashImpfungen.put("Tetanus", new StdImpfung("Tetanus"));
-     
-    }
-
-    public void HepatitisAImpfen(String Impfname)
-    {
-
-       HashImpfungen.get(Impfname);
-      
-      
-    }
-
-    public void HepatitisBImpfen(String Impfname)
-    {
 
     }
 
-    public void MasernImpfen(String Impfname)
+    public String HepatitisAImpfen(String Impfname)
     {
-
+        StdImpfung A1= HashImpfungen.get(Impfname);
+        A1.StatusAendern();
+        String C= A1.setNaechsteImpfung();
+        return C;
     }
 
-    public void MumpsImpfen(String Impfname)
+    public String HepatitisBImpfen(String Impfname)
     {
-
+        StdImpfung A2= HashImpfungen.get(Impfname);
+        A2.StatusAendern();
+        String C= A2.setNaechsteImpfung();
+        return C;
     }
 
-    public void RoetelnImpfen(String Impfname)
+    public String MasernImpfen(String Impfname)
     {
-
+        StdImpfung A3= HashImpfungen.get(Impfname);
+        A3.StatusAendern();
+        String C= A3.setNaechsteImpfung();
+        return C;
     }
 
-    public void TetanusImpfen(String Impfname)
+    public String MumpsImpfen(String Impfname)
     {
+        StdImpfung A4= HashImpfungen.get(Impfname);
+        A4.StatusAendern();
+        String C= A4.setNaechsteImpfung();
+        return C;
+    }
 
+    public String RoetelnImpfen(String Impfname)
+    {
+        StdImpfung A5= HashImpfungen.get(Impfname);
+        A5.StatusAendern();
+        String C= A5.setNaechsteImpfung();
+        return C;
+    }
+
+    public String TetanusImpfen(String Impfname)
+    {
+        StdImpfung A6= HashImpfungen.get(Impfname);
+        A6.StatusAendern();
+        String C=A6.setNaechsteImpfung();
+        return  C;
     }
 
     /**
@@ -71,9 +84,11 @@ public class Patient
      * @param keine
      * @return null
      */
-    public String Impfuebersicht()
+    public int Impfuebersicht(String Impfname)
     {
-        return null;
+        StdImpfung A7= HashImpfungen.get(Impfname);
+        int ImpfStatus= A7.getImpfstatus();
+        return ImpfStatus;
     }
 
     /**
@@ -82,10 +97,11 @@ public class Patient
      * @param Objekt aus StdImpfung (impfname)
      * @return null
      */
-    public String Informationsuebersicht()//StdImpfung Impfung
+    public String Informationsuebersicht(String Impfname)//StdImpfung Impfung
     {
-        //System.out.println(Impfung.getInformation());
-        return null;
+        StdImpfung A8= HashImpfungen.get(Impfname);
+        String Info= A8.getInformation();
+        return Info;
     }
 
     /**

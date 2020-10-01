@@ -47,7 +47,7 @@ public class Anwendung
         System.out.println("Der Patient wurde erfolgreich gelöscht.");
     }
 
-    public void Impfen(String Patientenname, String Impfname)
+    public String Impfen(String Patientenname, String Impfname)
     {
         Patient B= PatientSuchen(Patientenname);
         switch(Impfname)
@@ -68,17 +68,20 @@ public class Anwendung
             
             
         }
+        return "Impfung erfolgreich durchgeführt.";
     }
 
-    public String StatusAbfragen(Patient D)
+    public int StatusAbfragen(String Name, String Impfname)
     {
-        String Status= D.Impfuebersicht();
+        Patient D= PatientSuchen(Name);
+        int Status= D.Impfuebersicht(Impfname);
         return Status;
     }
     
-    public String InformationenAbfragen(Patient E)
+    public String InformationenAbfragen(String Name, String Impfname)
     {
-        String Info= E.Informationsuebersicht();
+        Patient E = PatientSuchen(Name);
+        String Info= E.Informationsuebersicht(Impfname);
         return Info;
     }
 }
