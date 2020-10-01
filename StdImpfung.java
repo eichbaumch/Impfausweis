@@ -5,6 +5,8 @@
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
+import java.util.HashMap;
+
 public class StdImpfung
 {
     
