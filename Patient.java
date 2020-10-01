@@ -1,3 +1,4 @@
+
 /**
  * Beschreiben Sie hier die Klasse Patient.
  * 
@@ -7,9 +8,8 @@
 import java.util.HashMap;
 
 public class Patient
-{
-    private String Patientenname, Geburtsdatum, Geschlecht, Adresse, Telefonnummer;
-    private HashMap<String, StdImpfung>HashImpfungen= new HashMap<String, StdImpfung>();
+{ private String Patientenname, Geburtsdatum, Geschlecht, Adresse, Telefonnummer;
+  private HashMap<String, StdImpfung>HashImpfungen= new HashMap();
 
     /**
      * Konstruktor für Objekte der Klasse Patient
@@ -21,6 +21,7 @@ public class Patient
         this.Geschlecht = Geschlecht;
         this.Adresse = Adresse;
         this.Telefonnummer = Telefonnummer;
+
         
         
         HashImpfungen.put("HepatitisA", new StdImpfung("HepatitisA"));
@@ -29,14 +30,15 @@ public class Patient
         HashImpfungen.put("Röteln", new StdImpfung("Röteln"));
         HashImpfungen.put("Masern", new StdImpfung("Masern"));
         HashImpfungen.put("Tetanus", new StdImpfung("Tetanus"));
-        
+     
     }
 
     public void HepatitisAImpfen(String Impfname)
     {
+
        HashImpfungen.get(Impfname);
       
-        
+      
     }
 
     public void HepatitisBImpfen()
@@ -67,7 +69,7 @@ public class Patient
     /**
      * Gibt aktuellen Status aller Impfungen auf dem Bildschirm aus
      * @param keine
-     * @return keine
+     * @return null
      */
     public String Impfuebersicht()
     {
@@ -78,10 +80,11 @@ public class Patient
      * Gibt Informationen über einzelne Impfungen auf dem Bildschirm aus
      * 
      * @param Objekt aus StdImpfung (impfname)
-     * @return keine
+     * @return null
      */
-    public String Informationsuebersicht()//StdImpfung Impfung
+    public String InformationenAbfragen()//StdImpfung Impfung
     {
+        //System.out.println(Impfung.getInformation());
         return null;
     }
 
