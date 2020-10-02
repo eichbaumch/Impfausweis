@@ -51,6 +51,7 @@ public class Patient
 
     public String HepatitisAImpfen()
     {
+
         StdImpfung A1= HashImpfungen.get("HepatitisA");
         A1.StatusAendern();
         String C= A1.setNaechsteImpfung();

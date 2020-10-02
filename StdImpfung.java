@@ -146,6 +146,7 @@ public class StdImpfung
 
     }
     
+
     public int StatusAendern()
     {
         if (Impfstatus<2)
