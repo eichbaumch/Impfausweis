@@ -133,5 +133,5 @@ public class Anwendung
         String Info= E.Informationsuebersicht(Impfname);
         return Info;
     }
-    
+
 }
