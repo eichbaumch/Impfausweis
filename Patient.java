@@ -1,6 +1,9 @@
 import java.util.HashMap;
 /**
- * Beschreiben Sie hier die Klasse Patient.
+ * In der Klasse Patient wird dessen Name, Geburtsdatum, Geschlecht, Adresse und Telefonnummer gepeichert. 
+ * Es wird eine HashMap mit sechs Objekten der Klasse SdtImpfung angelegt. Dem Patient kann jede Standardimpfung 
+ * extra geimpft werden. Er kann eine seinen Impfstatus für einzelne Impfungen, sowie die bei den StdImpfungen
+ * hinterlegte Information abrufen.
  * 
  * @author (Konrad Sautter, Pascale Gülcher, Hannah Schweitz, Sophia Parpoulas, Lena Speiser, Christopher Eichbaum) 
  * @version (30.09.2020)
