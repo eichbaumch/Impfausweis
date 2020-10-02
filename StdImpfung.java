@@ -1,6 +1,6 @@
 
 /**
- * In der Klasse werden für jede Impfung dei Attribute initialisiert.
+ * In der Klasse StdImpfung werden für jede Impfung die Attribute initialisiert.
  * Es wird der nächste Impftermin ausgegeben und der jeweilige Impfstatus wird geändert. 
  * 
  * 
@@ -25,7 +25,11 @@ public class StdImpfung
     private String naechsteImpfung;
     private int Impfstatus;
     private int maxAnzahl;
-
+/** Konstruktor um jeder Impfung Attributwerte zu überschreiben (durch eine switch-Anweisung).
+ * @param String Impfname
+ * @return keine
+ * 
+ */
     public StdImpfung(String Impfname)
     {
         switch(Impfname)
@@ -73,32 +77,46 @@ public class StdImpfung
 
     }
 
+    /**
+     * Get-Methode (getInformation) zum Abrufen der Informationen über die einzelnen Impfungen. 
+     * @param keine
+     * @return String Information
+     */
     public String getInformation()
     {
         return Information;
     }
 
-    //public int getAbstand()
-    //{
-    //return Abstand;
-    //}
-
+    /**
+     * Get-Methode (setNaechsteImpfung), welche durch einen internen Methodenaufruf auf die Methode Datum() zugreift und das neue Datum zurück gibt.
+     * @param keine
+     * @return String naechsteImpfung
+     */
     public String setNaechsteImpfung()
     {
         naechsteImpfung=Datum();
         return naechsteImpfung;
     }
 
+    /**
+     * Get-Methode (getImpfstatus), welche durch einen internen Methodenaufruf auf die Methode StatusAendern() zugreift und den neuen Status zurück gibt.
+     * @param keine
+     * @return int Impfstatus (durch internen Methodenaufruf)
+     */
     public int getImpfstatus()
     {
         return StatusAendern();
     }
 
-    public void setImpfstatus(int neuerStatus)
-    {
-        Impfstatus=neuerStatus;  
-    }
-
+   
+    /**
+     * Methode, welche durch eine if/else Bedingung für den jeweiligen Impfabstand (Attribut Abstand) das neue Impfdatum berechnet. Die dazu benötigten Methoden wurden zuvor aus der 
+     * Java Klassenbibliothek importiert. 
+     * @param keine
+     * @return String durch externen Methodenaufruf von importierte Klassen.
+   
+     * 
+     */
     public  String Datum ()
     {
         if (Abstand==2)
@@ -111,8 +129,8 @@ public class StdImpfung
             calendar.add(Calendar.DAY_OF_MONTH, 61);
             Date future = calendar.getTime();
             DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-            System.out.println ("Now:     "+ dateFormat.format(now));
-            System.out.println("Future:  " + dateFormat.format(future));
+            //System.out.println ("Now:     "+ dateFormat.format(now));
+            //System.out.println("Future:  " + dateFormat.format(future));
             return dateFormat.format(future);
 
         }
@@ -125,8 +143,8 @@ public class StdImpfung
             calendar.add(Calendar.DAY_OF_MONTH, 122);
             Date future = calendar.getTime();
             DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-            System.out.println ("Now:     "+ dateFormat.format(now));
-            System.out.println("Future:  " + dateFormat.format(future));
+            //System.out.println ("Now:     "+ dateFormat.format(now));
+            //System.out.println("Future:  " + dateFormat.format(future));
             return dateFormat.format(future);
 
         }
@@ -140,17 +158,22 @@ public class StdImpfung
             calendar.add(Calendar.DAY_OF_MONTH, 180);
             Date future = calendar.getTime();
             DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-            System.out.println ("Now:     "+ dateFormat.format(now));
-            System.out.println("Future:  " + dateFormat.format(future));
+            //System.out.println ("Now:     "+ dateFormat.format(now));
+            //System.out.println("Future:  " + dateFormat.format(future));
             return dateFormat.format(future);
         }
         else
-            System.out.println("Abstand nicht verfügbar");
-        return null;
+            
+        return "Abstand nicht verfügbar";
 
     }
 
 
+    /**
+     * Methode welche durch eine if/else Bedingung den Impfstatus bzw. eine Bildschirmausgabe macht, wenn die maximale Anzahl der Impfungen erreicht wurde. 
+     * @param keine
+     * @return int Impfstatus
+     */
     public int StatusAendern()
     {
         if (Impfstatus<2)
