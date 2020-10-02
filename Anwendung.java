@@ -3,6 +3,8 @@
  * Klassenname: Anwendung
  * Über Anwendung wird Patientenaufnahme und -verwaltung gesteuert. Außerdem kann geimpft werden. Von der Oberfläche soll auf diese Klasse
  * zugegriffen werden, um die nötigen Methoden auszuführen.
+ * Ein zweiter Konstruktor ist hier nicht sinnvoll, da im Konstruktor nur eine ArrayList erzeugt wird, in die alle neu erstellten Patienten 
+ * eingefügt werden. 
  * 
  * @author Konrad Sautter, Sophia Parpoulas 
  * @version 02.10.2020
