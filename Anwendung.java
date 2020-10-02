@@ -98,7 +98,7 @@ public class Anwendung
             default: x="Impfung nicht vorhanden";
             break;
         }
-         return "Impfung durchgeführt. Neues Datum:  " + x;
+         return "Impfung durchgefuehrt. Naechste Impfung:  " + x;
     }
 
     /**
