@@ -139,13 +139,13 @@ public class StdImpfung
 
     }
     
-    public String StatusAendern()
+    public int StatusAendern()
     {
         if (Impfstatus<3)
         {
             Impfstatus= Impfstatus +1;
         }
-        return null;
+        return Impfstatus;
     }
 }
 
