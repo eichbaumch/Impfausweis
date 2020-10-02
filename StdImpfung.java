@@ -20,6 +20,7 @@ public class StdImpfung
     private int Abstand;
     private String naechsteImpfung;
     private int Impfstatus;
+    private int maxAnzahl;
 
     public StdImpfung(String Impfname)
     {
@@ -29,36 +30,43 @@ public class StdImpfung
             Abstand=6;
             naechsteImpfung="0";
             Impfstatus=0;
+            maxAnzahl=2;
+
             break;
             case "HepatitisB": Information="Bei häufigem Reisen, geschwächter Immunabwehr und Kontakt zu Kranken, Impfung bei 2, 4 und 6 Monaten";
             Abstand=2;
             naechsteImpfung="0";
             Impfstatus=0;
+            maxAnzahl=3;
             break;
             case "Mumps": Information="Viruserkrankung über Tröpfcheninfektion, erste Impfung bei 11 Monaten und zweite bei 15 Monaten ";
             Abstand=4;
             naechsteImpfung="0";
             Impfstatus=0;
+            maxAnzahl=2;
             break;
 
             case "Roeteln": Information="Erwachsene Frauen und Personal, welches Kontakt zu Schwangeren und Kleinkindern hat, erste Impfung nach 11 Monaten und die zweite nach 15";
             Abstand=4;
             naechsteImpfung="0";
             Impfstatus=0;
+            maxAnzahl=2;
             break;
-            
+
             case "Masern": Information="Besonders gefährdet sind ungeimpfte Kleinkinder und Jugendliche, erste Impfung nach 13 Monaten und die zweite nach 17 Monaten  ";
             Abstand=4;   
             naechsteImpfung="0";
             Impfstatus=0;
+            maxAnzahl=2;
             break;
             case "Tetanus": Information="Soll Wundstarrkrampf durch Krankheitserreger verhindern, erste Impfung nach 2 Monaten, die zweite nach 4 Monaten und die letzte nach 10 Monaten, soll alle 10 Jahre wiederholt werden";
             Abstand=2;
             naechsteImpfung="0";
             Impfstatus=0;
+            maxAnzahl=3;
             break;
         }
-        
+
     }
 
     public String getInformation()
@@ -66,12 +74,11 @@ public class StdImpfung
         return Information;
     }
 
-    public int getAbstand()
-    {
-        return Abstand;
-    }
+    //public int getAbstand()
+    //{
+    //return Abstand;
+    //}
 
-    
     public String setNaechsteImpfung()
     {
         naechsteImpfung=Datum();
@@ -80,7 +87,7 @@ public class StdImpfung
 
     public int getImpfstatus()
     {
-        return Impfstatus;
+        return StatusAendern();
     }
 
     public void setImpfstatus(int neuerStatus)
@@ -141,10 +148,17 @@ public class StdImpfung
     
     public int StatusAendern()
     {
-        if (Impfstatus<3)
+        if (Impfstatus<2)
         {
-            Impfstatus= Impfstatus +1;
+            Impfstatus=Impfstatus+1;
         }
+
+        else if (maxAnzahl==3 && Impfstatus==2)
+        {
+            Impfstatus=Impfstatus+1;
+        }
+        
+        else System.out.println("Keine weitere Impfung notwendig");
         return Impfstatus;
     }
 }

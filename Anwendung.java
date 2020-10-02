@@ -84,17 +84,17 @@ public class Anwendung
         Patient B= PatientSuchen(Patientenname);
         switch(Impfname)
         {
-            case "HepatitisA": B.HepatitisAImpfen(Impfname);
+            case "HepatitisA": B.HepatitisAImpfen();
             break;
-            case "HepatitisB": B.HepatitisBImpfen(Impfname);
+            case "HepatitisB": B.HepatitisBImpfen();
             break;
-            case "Masern": B.MasernImpfen(Impfname);
+            case "Masern": B.MasernImpfen();
             break;
-            case "Mumps": B.MumpsImpfen(Impfname);
+            case "Mumps": B.MumpsImpfen();
             break;
-            case"Roeteln":B.RoetelnImpfen(Impfname);
+            case"Roeteln":B.RoetelnImpfen();
             break;
-            case "Tetanus": B.TetanusImpfen(Impfname);
+            case "Tetanus": B.TetanusImpfen();
             break;
             default: System.out.println("Impfung nicht vorhanden");
             break;
