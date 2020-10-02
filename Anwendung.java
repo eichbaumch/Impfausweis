@@ -1,17 +1,16 @@
 
 /**
- * Beschreiben Sie hier die Klasse Anwendung.
+ * Klassenname: Anwendung
+ * Über Anwendung wird Patientenaufnahme und -Verwaltung gesteuert. Außerdem kann geimpft werden. Von der Oberfläche soll auf diese Klasse
+ * zugegriffen werden, um die nötigen Methoden auszuführen.
  * 
  * @author Konrad Sautter, Sophia Parpoulas 
  * @version 02.10.2020
  */
 import java.util.ArrayList;
-import java.util.Date;
 public class Anwendung
 
 {
-
-   
     private ArrayList<Patient>Liste;
 
     /**
@@ -34,21 +33,21 @@ public class Anwendung
     {
         Patient A= new Patient(Name,Geburtstag,Geschlecht,Adresse,Telefonnummer);
         Liste.add(A);
-   }
+    }
 
-   /**
-    * Methode zum Suchen eines Patienten in der ArrayList durch Eingabe des Namens. Name wird verwendet um mit einer foreach Schleife jedes 
-    * Element der Liste zu durchsuchen. Falls der Name mit einem Namen auf der Liste übereinstimmt, wird der Patient zurück gegeben. Ansonsten 
-    * wird eine Fehlermeldung ausgegeben.
-    * @Param: String Name 
-    * @Return: Objekt Patient
-    */ 
-   public Patient PatientSuchen(String Name)
-   {
-       
-       for (Patient e: Liste)
-       {
-           if (e.getPatientenname().equals(Name))
+    /**
+     * Methode zum Suchen eines Patienten in der ArrayList durch Eingabe des Namens. Name wird verwendet um mit einer foreach Schleife jedes 
+     * Element der Liste zu durchsuchen. Falls der Name mit einem Namen auf der Liste übereinstimmt, wird der Patient zurück gegeben. Ansonsten 
+     * wird eine Fehlermeldung ausgegeben.
+     * @Param: String Name 
+     * @Return: Objekt Patient
+     */ 
+    public Patient PatientSuchen(String Name)
+    {
+
+        for (Patient e: Liste)
+        {
+            if (e.getPatientenname().equals(Name))
             {
                 return e;
             }
@@ -57,7 +56,6 @@ public class Anwendung
         return null;
     }
 
-    
     /**
      * Methode zum löschen eines Patienten durch Eingabe des Namens. Die Methode ruft durch einen internen Methodenaufruf die Methode PatientSuchen()
      * auf. Falls der Patient gefunden wird, wird dieser entfernt.
@@ -79,7 +77,7 @@ public class Anwendung
      * @ param: String: Patientenname, Impfname
      * @return: String:"Impfung erfolgreich durchgeführt"
      */
-    public void Impfen(String Patientenname, String Impfname)
+    public String Impfen(String Patientenname, String Impfname)
     {
         Patient B= PatientSuchen(Patientenname);
         switch(Impfname)
@@ -92,16 +90,16 @@ public class Anwendung
             break;
             case "Mumps": B.MumpsImpfen();
             break;
-            case"Roeteln":B.RoetelnImpfen();
+            case"Roeteln": B.RoetelnImpfen();
             break;
             case "Tetanus": B.TetanusImpfen();
             break;
             default: System.out.println("Impfung nicht vorhanden");
             break;
         }
-        
+        return "Impfung erfolgreich durchgeführt";
     }
-    
+
     /**
      * Methode um den aktuellen Impfstatus eines Patinten abzufragen.
      * Es wird durch einen internen Methodenaufruf der Methode PatientSuchen() auf den Patient zugegriffen. Der Impfstatus wird 
@@ -116,7 +114,7 @@ public class Anwendung
         int Status= D.Impfuebersicht(Impfname);
         return Status;
     }
-    
+
     /**
      * Methode um die Informationen einer Impfung abzurufen.
      * Es wird durch einen internen Methodenaufruf der Methode PatientSuchen() auf den Patient zugegriffen.
