@@ -145,7 +145,7 @@ public class StdImpfung
         return null;
 
     }
-    
+
 
     public int StatusAendern()
     {
