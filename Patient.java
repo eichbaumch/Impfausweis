@@ -101,6 +101,7 @@ public class Patient
         String C=A6.setNaechsteImpfung();
         return  C;
     }
+    
     /**
      * Gibt aktuellen Status der eingegebenen Impfung zurück
      *
