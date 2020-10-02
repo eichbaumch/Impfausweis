@@ -1,12 +1,12 @@
 import java.util.HashMap;
 /**
  * In der Klasse Patient wird dessen Name, Geburtsdatum, Geschlecht, Adresse und Telefonnummer gepeichert. 
- * Es wird eine HashMap mit sechs Objekten der Klasse SdtImpfung angelegt. Dem Patient kann jede Standardimpfung 
- * extra geimpft werden. Er kann eine seinen Impfstatus für einzelne Impfungen, sowie die bei den StdImpfungen
- * hinterlegte Information abrufen.
+ * Jedem Patienten wird automatisch ein Paket mit sechs Standardimpfungen zugewiesen. Dem Patient kann jede Standardimpfung 
+ * extra geimpft werden. Es kann sein Impfstatus für einzelne Impfungen, sowie die bei den StdImpfungen
+ * hinterlegte Information abgerufen werden.
  * 
- * @author (Konrad Sautter, Pascale Gülcher, Hannah Schweitz, Sophia Parpoulas, Lena Speiser, Christopher Eichbaum) 
- * @version (30.09.2020)
+ * @author Pascale Gülcher, Hannah Schweitz
+ * @version 02.10.2020
  */
 
 public class Patient
@@ -15,7 +15,10 @@ public class Patient
     private HashMap <String, StdImpfung> HashImpfungen = new HashMap();
 
     /**
-     * Konstruktor für Objekte der Klasse Patient
+     * Konstruktor für Objekte der Klasse Patient, Attributwerte werden übergeben, erstellt die HashMap HashImpfungen mit 
+     * sechs Objekten der Klasse StdImpfung.
+     * 
+     * @param String Patientenname, String Geburtsdatum, String Geschlecht, String Adresse, String Telefonnummer
      */
     public Patient(String Patientenname, String Geburtsdatum, String Geschlecht, String Adresse, String Telefonnummer)
     {
@@ -31,9 +34,14 @@ public class Patient
         HashImpfungen.put("Roeteln", new StdImpfung("Roeteln"));
         HashImpfungen.put("Masern", new StdImpfung("Masern"));
         HashImpfungen.put("Tetanus", new StdImpfung("Tetanus"));
-
     }
 
+    /**
+     * Standardkonstruktor für Objekte der Klasse Patient, legt Attributwerte fest, erstellt die HashMap HashImpfungen mit 
+     * sechs Objekten der Klasse StdImpfung.
+     * 
+     * @param keine
+     */
     public Patient()
     {
         Patientenname = "Max Mustermann";
@@ -48,81 +56,27 @@ public class Patient
         HashImpfungen.put("Roeteln", new StdImpfung("Roeteln"));
         HashImpfungen.put("Masern", new StdImpfung("Masern"));
         HashImpfungen.put("Tetanus", new StdImpfung("Tetanus"));
-
     }
-
+    
+    /**
+     * Impft HepatitisA.
+     * Speichert die Daten des Objekts StdImpfung mit dem Key "HepatitisA" aus der HashMap HashImpfungen im Objekt A. Durch externen
+     * Methodenaufruf der Methode getImpfstatus wird in der if-Bedingung geprüft, ob der Impfstatus kleiner zwei ist. 
+     * Trifft dies zu, wird der Impstatus mit externem Methodenaufruf der Methode StatusAendern() um eins erhöht und das 
+     * Datum der nächsten Impfung mit externem Methodenaufruf der Methode setNaechteImfung() aktualiesiert und in der 
+     * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus zwei, wird der String "Keine weitere 
+     * Impfung notwendig" ausgegeben.
+     *
+     * @param keine
+     * @return String C, String
+     */
     public String HepatitisAImpfen()
     {
-       StdImpfung A1= HashImpfungen.get("HepatitisA");
-        if( A1.getImpfstatus() <3)
+       StdImpfung A= HashImpfungen.get("HepatitisA");
+        if( A.getImpfstatus() <2)
         {
-            A1.StatusAendern();
-            String C= A1.setNaechsteImpfung();
-            return C;
-        }
-        else
-            return "Keine weitere Impfung notwendig";
-    }
-
-    public String HepatitisBImpfen()
-    {
-         StdImpfung A2= HashImpfungen.get("HepatitisB");
-        if( A2.getImpfstatus() <3)
-        {
-            A2.StatusAendern();
-            String C= A2.setNaechsteImpfung();
-            return C;
-        }
-        else
-            return "Keine weitere Impfung notwendig";
-    }
-
-    public String MasernImpfen()
-    {
-        StdImpfung A3= HashImpfungen.get("Masern");
-        if( A3.getImpfstatus() <3)
-        {
-            A3.StatusAendern();
-            String C= A3.setNaechsteImpfung();
-            return C;
-        }
-        else
-            return "Keine weitere Impfung notwendig";
-    }
-
-    public String MumpsImpfen()
-    {
-        StdImpfung A4= HashImpfungen.get("Mumps");
-        if( A4.getImpfstatus() <3)
-        {
-            A4.StatusAendern();
-            String C= A4.setNaechsteImpfung();
-            return C;
-        }
-        else
-            return "Keine weitere Impfung notwendig";
-    }
-
-    public String RoetelnImpfen()
-    {
-        StdImpfung A5= HashImpfungen.get("Roeteln");
-        if( A5.getImpfstatus() <3)
-        {
-            A5.StatusAendern();
-            String C= A5.setNaechsteImpfung();
-            return C;
-        }
-        else
-            return "Keine weitere Impfung notwendig";
-    }
-
-    public String TetanusImpfen()
-    {
-        StdImpfung A6= HashImpfungen.get("Tetanus");
-        if( A6.getImpfstatus() <3)
-        {
-            A6.StatusAendern();
-            String C= A6.setNaechsteImpfung();
+            A.StatusAendern();
+            String C= A.setNaechsteImpfung();
             return C;
         }
         else
@@ -130,37 +84,169 @@ public class Patient
     }
 
     /**
-     * Gibt aktuellen Status der eingegebenen Impfung zurück
+     * Impft HepatitisB.
+     * Speichert die Daten des Objekts StdImpfung mit dem Key "HepatitisB" aus der HashMap HashImpfungen im Objekt A. Durch externen
+     * Methodenaufruf der Methode getImpfstatus wird in der if-Bedingung geprüft, ob der Impfstatus kleiner drei ist. 
+     * Trifft dies zu, wird der Impstatus mit externem Methodenaufruf der Methode StatusAendern() um eins erhöht und das 
+     * Datum der nächsten Impfung mit externem Methodenaufruf der Methode setNaechteImfung() aktualiesiert und in der 
+     * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus drei, wird der String "Keine weitere 
+     * Impfung notwendig" ausgegeben.
      *
-     * @param Impfname
-     * @return ImpfStatus
+     * @param keine
+     * @return String C, String
+     */
+    public String HepatitisBImpfen()
+    {
+         StdImpfung A = HashImpfungen.get("HepatitisB");
+        if( A.getImpfstatus() <3)
+        {
+            A.StatusAendern();
+            String C = A.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
+    }
+
+     /**
+     * Impft Masern.
+     * Speichert die Daten des Objekts StdImpfung mit dem Key "Masern" aus der HashMap HashImpfungen im Objekt A. Durch externen
+     * Methodenaufruf der Methode getImpfstatus wird in der if-Bedingung geprüft, ob der Impfstatus kleiner zwei ist. 
+     * Trifft dies zu, wird der Impstatus mit externem Methodenaufruf der Methode StatusAendern() um eins erhöht und das 
+     * Datum der nächsten Impfung mit externem Methodenaufruf der Methode setNaechteImfung() aktualiesiert und in der 
+     * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus zwei, wird der String "Keine weitere 
+     * Impfung notwendig" ausgegeben.
+     *
+     * @param keine
+     * @return String C, String
+     */
+    public String MasernImpfen()
+    {
+        StdImpfung A= HashImpfungen.get("Masern");
+        if( A.getImpfstatus() <2)
+        {
+            A.StatusAendern();
+            String C= A.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
+    }
+
+    /**
+     * Impft Mumps.
+     * Speichert die Daten des Objekts StdImpfung mit dem Key "Mumps" aus der HashMap HashImpfungen im Objekt A. Durch externen
+     * Methodenaufruf der Methode getImpfstatus wird in der if-Bedingung geprüft, ob der Impfstatus kleiner zwei ist. 
+     * Trifft dies zu, wird der Impstatus mit externem Methodenaufruf der Methode StatusAendern() um eins erhöht und das 
+     * Datum der nächsten Impfung mit externem Methodenaufruf der Methode setNaechteImfung() aktualiesiert und in der 
+     * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus zwei, wird der String "Keine weitere 
+     * Impfung notwendig" ausgegeben.
+     *
+     * @param keine
+     * @return String C, String
+     */
+    public String MumpsImpfen()
+    {
+        StdImpfung A = HashImpfungen.get("Mumps");
+        if( A.getImpfstatus() <2)
+        {
+            A.StatusAendern();
+            String C= A.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
+    }
+
+    /**
+     * Impft Röteln.
+     * Speichert die Daten des Objekts StdImpfung mit dem Key "Roeteln" aus der HashMap HashImpfungen im Objekt A. Durch externen
+     * Methodenaufruf der Methode getImpfstatus wird in der if-Bedingung geprüft, ob der Impfstatus kleiner zwei ist. 
+     * Trifft dies zu, wird der Impstatus mit externem Methodenaufruf der Methode StatusAendern() um eins erhöht und das 
+     * Datum der nächsten Impfung mit externem Methodenaufruf der Methode setNaechteImfung() aktualiesiert und in der 
+     * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus zwei, wird der String "Keine weitere 
+     * Impfung notwendig" ausgegeben.
+     *
+     * @param keine
+     * @return String C, String
+     */
+    public String RoetelnImpfen()
+    {
+        StdImpfung A= HashImpfungen.get("Roeteln");
+        if( A.getImpfstatus() <2)
+        {
+            A.StatusAendern();
+            String C= A.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
+    }
+
+    /**
+     * Impft Tetanus.
+     * Speichert die Daten des Objekts StdImpfung mit dem Key "Tetanus" aus der HashMap HashImpfungen im Objekt A. Durch externen
+     * Methodenaufruf der Methode getImpfstatus wird in der if-Bedingung geprüft, ob der Impfstatus kleiner fünf ist. 
+     * Trifft dies zu, wird der Impstatus mit externem Methodenaufruf der Methode StatusAendern() um eins erhöht und das 
+     * Datum der nächsten Impfung mit externem Methodenaufruf der Methode setNaechteImfung() aktualiesiert und in der 
+     * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus fünf, wird der String "Keine weitere 
+     * Impfung notwendig" ausgegeben.
+     *
+     * @param keine
+     * @return String C, String
+     */
+    public String TetanusImpfen()
+    {
+        StdImpfung A= HashImpfungen.get("Tetanus");
+        if( A.getImpfstatus() <5)
+        {
+            A.StatusAendern();
+            String C= A.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
+    }
+
+    /**
+     * Gibt aktuellen Status der eingegebenen Impfung zurück.
+     * Speichert Objekt der Klasse StdImpfung mit dem eingebenen Key Impfname aus der HashMap HashImpfungen in A. Speichert den 
+     * durch externen Methodenaufruf der Methode getImpfstatus() Impfstatus in der int-Variable ImpfStatus. Speichert den 
+     * Impfname + ": " + Impfstatus in der String-Variable Ausgabe und gibt diese dann aus.
+     *
+     * @param String Impfname
+     * @return String Ausgabe
      */
     public String Impfuebersicht(String Impfname)
     {
-        StdImpfung A7= HashImpfungen.get(Impfname);
-        int ImpfStatus = A7.getImpfstatus();
+        StdImpfung A= HashImpfungen.get(Impfname);
+        int ImpfStatus = A.getImpfstatus();
         String Ausgabe = Impfname + ": " + ImpfStatus;
         return Ausgabe;
     }
 
     /**
-     * Gibt Informationen über einzelne Impfungen zurück
+     * Gibt Informationen über einzelne Impfungen zurück.
+     * Speichert Objekt der Klasse StdImpfung mit dem eingebenen Key Impfname aus der HashMap HashImpfungen in A. Speichert den 
+     * durch externen Methodenaufruf der Methode getInformation() Impfstatus in der String-Variable Info. Speichert den 
+     * Impfname + ": " + Info in der String-Variable Ausgabe und gibt diese dann aus.
      * 
-     * @param Impfname
-     * @return Info
+     * @param String Impfname
+     * @return String Ausgabe
      */
     public String Informationsuebersicht(String Impfname)
     {
-        StdImpfung A8 = HashImpfungen.get(Impfname);
-        String Info = A8.getInformation();
+        StdImpfung A = HashImpfungen.get(Impfname);
+        String Info = A.getInformation();
         String Ausgabe = Impfname + ": " + Info;
         return Ausgabe;
     }
 
     /**
      * Ändert den Patienenname
+     * Überschreibt den Patientenname mit dem String-Parameter neuerName.
      * 
-     * @param neuerName
+     * @param String neuerName
      * @return keine
      * 
      */
@@ -171,8 +257,9 @@ public class Patient
 
     /**
      * Ändert das Geburtsdatum
+     * Überschreibt das Geburtsdatum mit dem String-Parameter neuesGeburtsdatum.
      * 
-     * @param neuesGeburtsdatum
+     * @param String neuesGeburtsdatum
      * @return keine
      * 
      */
@@ -183,8 +270,9 @@ public class Patient
 
     /**
      * Ändert das Geschlecht
+     * Überschreibt das Geschlecht mit dem String-Parameter neuesGeschlecht.
      * 
-     * @param neuesGeschlecht
+     * @param String neuesGeschlecht
      * @return keine
      * 
      */
@@ -195,8 +283,9 @@ public class Patient
 
     /**
      * Ändert die Adresse
+     * Überschreibt die Adresse mit dem String-Parameter neueAdresse.
      * 
-     * @param neueAdresse
+     * @param String neueAdresse
      * @return keine
      * 
      */
@@ -207,8 +296,9 @@ public class Patient
 
     /**
      * Ändert die Telefonnummer
+     * Überschreibt die Telefonnummer mit dem String-Parameter neueTelefonnummer.
      * 
-     * @param neueTelefonnummer
+     * @param String neueTelefonnummer
      * @return keine
      * 
      */
@@ -221,7 +311,7 @@ public class Patient
      * Gibt den Patientennamen aus
      * 
      * @param keine
-     * @return Patientenname
+     * @return String Patientenname
      * 
      */
     public String getPatientenname()
@@ -233,7 +323,7 @@ public class Patient
      * Gibt das Geburtsdatum aus
      * 
      * @param keine
-     * @return Geburtsdatum
+     * @return String Geburtsdatum
      * 
      */
     public String getGeburtsdatum()
@@ -245,7 +335,7 @@ public class Patient
      * Gibt das Geschlecht aus
      * 
      * @param keine
-     * @return Geschlecht
+     * @return String Geschlecht
      * 
      */
     public String getGeschlecht()
@@ -257,7 +347,7 @@ public class Patient
      * Gibt die Adresse aus
      * 
      * @param keine
-     * @return Adresse
+     * @return String Adresse
      * 
      */
     public String getAdresse()
@@ -269,7 +359,7 @@ public class Patient
      * Gibt die Telefonnummer aus
      * 
      * @param keine
-     * @return Telefonnummer
+     * @return String Telefonnummer
      * 
      */
     public String getTelefonnummer()
