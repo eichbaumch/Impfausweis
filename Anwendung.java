@@ -79,7 +79,7 @@ public class Anwendung
      * @ param: String: Patientenname, Impfname
      * @return: String:"Impfung erfolgreich durchgeführt"
      */
-    public String Impfen(String Patientenname, String Impfname)
+    public void Impfen(String Patientenname, String Impfname)
     {
         Patient B= PatientSuchen(Patientenname);
         switch(Impfname)
@@ -98,10 +98,8 @@ public class Anwendung
             break;
             default: System.out.println("Impfung nicht vorhanden");
             break;
-            
-            
         }
-        return "Impfung erfolgreich durchgeführt.";
+        
     }
     
     /**
