@@ -150,12 +150,14 @@ public class StdImpfung
 
     }
 
+
     public int StatusAendern()
     {
         if (Impfstatus<2)
         {
             Impfstatus=Impfstatus+1;
         }
+
         else if (maxAnzahl==3 && Impfstatus==2)
         {
             Impfstatus=Impfstatus+1;
