@@ -105,7 +105,7 @@ public class StdImpfung
      */
     public int getImpfstatus()
     {
-        return StatusAendern();
+        return Impfstatus;
     }
 
    
