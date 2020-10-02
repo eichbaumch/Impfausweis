@@ -18,7 +18,7 @@ public class Anwendung
     /**
      * Standard Konstruktor, der durch erzeugen einer ArrayList eine Liste aller Patienten anlegt.
      * @param: Keine
-     * @Return: Keine
+     * @return: Keine
      */
     public Anwendung()
     {
@@ -40,8 +40,8 @@ public class Anwendung
      * Methode zum Suchen eines Patienten in der ArrayList durch Eingabe des Namens. Name wird verwendet um mit einer foreach Schleife jedes 
      * Element der Liste zu durchsuchen. Falls der Name mit einem Namen auf der Liste übereinstimmt, wird der Patient zurück gegeben. Ansonsten 
      * wird eine Fehlermeldung ausgegeben.
-     * @Param: String Name 
-     * @Return: Objekt Patient
+     * @param: String Name 
+     * @return: Objekt Patient
      */ 
     public Patient PatientSuchen(String Name)
     {
@@ -75,7 +75,7 @@ public class Anwendung
      * Der Patient wird durch einen internen Methodenaufruf der Methode PatientSuchen() aufgerufen.
      * Anschließend wird durch eine switch-Anweisung die durchzuführende Impfung herausgesucht und durch einen externen Methodenaufruf
      * der jeweiligen Impfmethode in der Klasse Patient durchgeführt.
-     * @ param: String: Patientenname, Impfname
+     * @param: String: Patientenname, Impfname
      * @return: String:"Impfung erfolgreich durchgeführt"
      */
     public String Impfen(String Patientenname, String Impfname)

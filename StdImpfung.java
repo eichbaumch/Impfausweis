@@ -25,11 +25,11 @@ public class StdImpfung
     private String naechsteImpfung;
     private int Impfstatus;
     private int maxAnzahl;
-/** Konstruktor um jeder Impfung Attributwerte zu überschreiben (durch eine switch-Anweisung).
- * @param String Impfname
- * @return keine
- * 
- */
+    /** Konstruktor um jeder Impfung Attributwerte zu überschreiben (durch eine switch-Anweisung).
+     * @param String Impfname
+     * @return keine
+     * 
+     */
     public StdImpfung(String Impfname)
     {
         switch(Impfname)
@@ -108,13 +108,12 @@ public class StdImpfung
         return Impfstatus;
     }
 
-   
     /**
      * Methode, welche durch eine if/else Bedingung für den jeweiligen Impfabstand (Attribut Abstand) das neue Impfdatum berechnet. Die dazu benötigten Methoden wurden zuvor aus der 
      * Java Klassenbibliothek importiert. 
      * @param keine
      * @return String durch externen Methodenaufruf von importierte Klassen.
-   
+
      * 
      */
     public  String Datum ()
@@ -163,11 +162,10 @@ public class StdImpfung
             return dateFormat.format(future);
         }
         else
-            
-        return "Abstand nicht verfügbar";
+
+            return "Abstand nicht verfügbar";
 
     }
-
 
     /**
      * Methode welche durch eine if/else Bedingung den Impfstatus bzw. eine Bildschirmausgabe macht, wenn die maximale Anzahl der Impfungen erreicht wurde. 
@@ -185,7 +183,7 @@ public class StdImpfung
         {
             Impfstatus=Impfstatus+1;
         }
-        
+
         else System.out.println("Keine weitere Impfung notwendig");
         return Impfstatus;
     }
