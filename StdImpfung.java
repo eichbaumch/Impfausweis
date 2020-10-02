@@ -1,9 +1,13 @@
 
 /**
- * Beschreiben Sie hier die Klasse StdImpfung.
+ * In der Klasse werden für jede Impfung dei Attribute initialisiert.
+ * Es wird der nächste Impftermin ausgegeben und der jeweilige Impfstatus wird geändert. 
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * 
+ * 
+ *
+ * @author (Lena Speiser & Christopher Eichbaum) 
+ * @version (02.10.2020)
  */
 
 import java.text.DateFormat;
@@ -12,7 +16,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class StdImpfung
+public class StdImpfung 
 {
 
     private String Impfname;

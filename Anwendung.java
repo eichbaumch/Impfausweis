@@ -56,7 +56,7 @@ public class Anwendung
             break;
             case "HepatitisB": B.HepatitisBImpfen(Impfname);
             break;
-            case "Masern": B.MasernImpfen(Impfname);
+            case "Masern": B.MasernImpfen();
             break;
             case "Mumps": B.MumpsImpfen(Impfname);
             break;
