@@ -1,7 +1,7 @@
 
 /**
  * Klassenname: Anwendung
- * Über Anwendung wird Patientenaufnahme und -Verwaltung gesteuert. Außerdem kann geimpft werden. Von der Oberfläche soll auf diese Klasse
+ * Über Anwendung wird Patientenaufnahme und -verwaltung gesteuert. Außerdem kann geimpft werden. Von der Oberfläche soll auf diese Klasse
  * zugegriffen werden, um die nötigen Methoden auszuführen.
  * 
  * @author Konrad Sautter, Sophia Parpoulas 
@@ -21,7 +21,6 @@ public class Anwendung
     public Anwendung()
     {
         Liste=new ArrayList<Patient>();
-
     }
 
     /**
@@ -98,7 +97,7 @@ public class Anwendung
             default: x="Impfung nicht vorhanden";
             break;
         }
-         return "Impfung durchgefuehrt. Naechste Impfung:  " + x;
+        return "Impfung durchgefuehrt. Naechste Impfung:  " + x;
     }
 
     /**
@@ -131,4 +130,25 @@ public class Anwendung
         return Info;
     }
 
+    /**
+     * Eine Methode um die Patientendaten zu bearbeiten. Durch eine Switch Anweisung wird je der Eingabe die entsprechende Set Methode aus der
+     * Klasse Patient ausgewählt und durch einen externen Methodenaufruf ausgeführt. Dadurch wird der neue Eingabewert im Patienten gespeichert.
+     */
+    public void PatientendatenAendern(String zuAenderndeDaten, String Patientenname, String neueDaten)
+    {
+        Patient X= PatientSuchen(Patientenname);
+        switch(zuAenderndeDaten)
+        {
+            case "Patientenname": X.setPatientenname(neueDaten);
+            break;
+            case "Geburtsdatum": X.setGeburtsdatum(neueDaten);
+            break;
+            case "Geschlecht": X.setGeschlecht(neueDaten);
+            break;
+            case "Adresse": X.setAdresse(neueDaten);
+            break;
+            case "Telefonnummer": X.setTelefonnummer(neueDaten);
+            break;
+        }
+    }
 }
