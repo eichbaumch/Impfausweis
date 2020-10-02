@@ -1,19 +1,16 @@
-
+import java.util.HashMap;
 /**
  * Beschreiben Sie hier die Klasse Patient.
  * 
  * @author (Konrad Sautter, Pascale Gülcher, Hannah Schweitz, Sophia Parpoulas, Lena Speiser, Christopher Eichbaum) 
  * @version (30.09.2020)
  */
-import java.util.HashMap;
 
 public class Patient
-{ private String Patientenname, Geburtsdatum, Geschlecht, Adresse, Telefonnummer;
-    private HashMap<String, StdImpfung>HashImpfungen= new HashMap();
+{   
+    private String Patientenname, Geburtsdatum, Geschlecht, Adresse, Telefonnummer;
+    private HashMap <String, StdImpfung> HashImpfungen = new HashMap();
 
-    /**
-     * Konstruktor für Objekte der Klasse Patient
-     */
     /**
      * Konstruktor für Objekte der Klasse Patient
      */
@@ -106,30 +103,41 @@ public class Patient
     public String RoetelnImpfen()
     {
         StdImpfung A5= HashImpfungen.get("Roeteln");
-        A5.StatusAendern();
-        String C= A5.setNaechsteImpfung();
-        return C;
+        if( A5.getImpfstatus() <3)
+        {
+            A5.StatusAendern();
+            String C= A5.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
     }
 
     public String TetanusImpfen()
     {
         StdImpfung A6= HashImpfungen.get("Tetanus");
-        A6.StatusAendern();
-        String C=A6.setNaechsteImpfung();
-        return  C;
+        if( A6.getImpfstatus() <3)
+        {
+            A6.StatusAendern();
+            String C= A6.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
     }
-    
+
     /**
      * Gibt aktuellen Status der eingegebenen Impfung zurück
      *
      * @param Impfname
      * @return ImpfStatus
      */
-    public int Impfuebersicht(String Impfname)
+    public String Impfuebersicht(String Impfname)
     {
         StdImpfung A7= HashImpfungen.get(Impfname);
-        int ImpfStatus= A7.getImpfstatus();
-        return ImpfStatus;
+        int ImpfStatus = A7.getImpfstatus();
+        String Ausgabe = Impfname + ": " + ImpfStatus;
+        return Ausgabe;
     }
 
     /**
@@ -140,9 +148,10 @@ public class Patient
      */
     public String Informationsuebersicht(String Impfname)
     {
-        StdImpfung A8= HashImpfungen.get(Impfname);
-        String Info= A8.getInformation();
-        return Info;
+        StdImpfung A8 = HashImpfungen.get(Impfname);
+        String Info = A8.getInformation();
+        String Ausgabe = Impfname + ": " + Info;
+        return Ausgabe;
     }
 
     /**

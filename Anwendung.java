@@ -80,24 +80,25 @@ public class Anwendung
     public String Impfen(String Patientenname, String Impfname)
     {
         Patient B= PatientSuchen(Patientenname);
+        String x;
         switch(Impfname)
         {
-            case "HepatitisA": B.HepatitisAImpfen();
+            case "HepatitisA": x=B.HepatitisAImpfen();
             break;
-            case "HepatitisB": B.HepatitisBImpfen();
+            case "HepatitisB": x=B.HepatitisBImpfen();
             break;
-            case "Masern": B.MasernImpfen();
+            case "Masern": x=B.MasernImpfen();
             break;
-            case "Mumps": B.MumpsImpfen();
+            case "Mumps": x=B.MumpsImpfen();
             break;
-            case"Roeteln": B.RoetelnImpfen();
+            case"Roeteln": x=B.RoetelnImpfen();
             break;
-            case "Tetanus": B.TetanusImpfen();
+            case "Tetanus": x=B.TetanusImpfen();
             break;
-            default: System.out.println("Impfung nicht vorhanden");
+            default: x="Impfung nicht vorhanden";
             break;
         }
-        return "Impfung erfolgreich durchgeführt";
+         return "Impfung durchgeführt. Neues Datum:  " + x;
     }
 
     /**
@@ -108,10 +109,10 @@ public class Anwendung
      * @param: String: Name, Impfname
      * @return: int Status
      */
-    public int StatusAbfragen(String Name, String Impfname)
+    public String StatusAbfragen(String Name, String Impfname)
     {
         Patient D= PatientSuchen(Name);
-        int Status= D.Impfuebersicht(Impfname);
+        String Status= D.Impfuebersicht(Impfname);
         return Status;
     }
 
