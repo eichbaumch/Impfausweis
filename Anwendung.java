@@ -79,27 +79,28 @@ public class Anwendung
      * @ param: String: Patientenname, Impfname
      * @return: String:"Impfung erfolgreich durchgeführt"
      */
-    public void Impfen(String Patientenname, String Impfname)
+    public String Impfen(String Patientenname, String Impfname)
     {
         Patient B= PatientSuchen(Patientenname);
+        String x;
         switch(Impfname)
         {
-            case "HepatitisA": B.HepatitisAImpfen();
+            case "HepatitisA": x=B.HepatitisAImpfen();
             break;
-            case "HepatitisB": B.HepatitisBImpfen();
+            case "HepatitisB": x=B.HepatitisBImpfen();
             break;
-            case "Masern": B.MasernImpfen();
+            case "Masern": x=B.MasernImpfen();
             break;
-            case "Mumps": B.MumpsImpfen();
+            case "Mumps": x=B.MumpsImpfen();
             break;
-            case"Roeteln":B.RoetelnImpfen();
+            case"Roeteln": x=B.RoetelnImpfen();
             break;
-            case "Tetanus": B.TetanusImpfen();
+            case "Tetanus": x=B.TetanusImpfen();
             break;
-            default: System.out.println("Impfung nicht vorhanden");
+            default: x="Impfung nicht vorhanden";
             break;
         }
-        
+        return x;
     }
     
     /**
