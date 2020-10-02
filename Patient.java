@@ -47,12 +47,17 @@ public class Patient
         return C;
     }
 
-    public String MasernImpfen(String Impfname)
+    public String MasernImpfen()
     {
-        StdImpfung A3= HashImpfungen.get(Impfname);
-        A3.StatusAendern();
-        String C= A3.setNaechsteImpfung();
-        return C;
+        StdImpfung A3= HashImpfungen.get("Masern");
+        if( A3.getImpfstatus() <3)
+        {
+            A3.StatusAendern();
+            String C= A3.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
     }
 
     public String MumpsImpfen(String Impfname)
