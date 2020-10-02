@@ -135,22 +135,32 @@ public class Anwendung
     /**
      * Eine Methode um die Patientendaten zu bearbeiten. Durch eine Switch Anweisung wird je der Eingabe die entsprechende Set Methode aus der
      * Klasse Patient ausgewählt und durch einen externen Methodenaufruf ausgeführt. Dadurch wird der neue Eingabewert im Patienten gespeichert.
+     * @param: String: zuAenderndeDaten, Patientenname, neueDaten
+     * @return: String: Bestätigung der Änderung im Falle einer der cases. Im Falle eines default: Hinfauf auf falsche Eingabe
      */
-    public void PatientendatenAendern(String zuAenderndeDaten, String Patientenname, String neueDaten)
+    public String PatientendatenAendern(String zuAenderndeDaten, String Patientenname, String neueDaten)
     {
         Patient X= PatientSuchen(Patientenname);
+        String ausgabe;
         switch(zuAenderndeDaten)
         {
             case "Patientenname": X.setPatientenname(neueDaten);
+            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
             break;
             case "Geburtsdatum": X.setGeburtsdatum(neueDaten);
+            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
             break;
             case "Geschlecht": X.setGeschlecht(neueDaten);
+            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
             break;
             case "Adresse": X.setAdresse(neueDaten);
+            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
             break;
             case "Telefonnummer": X.setTelefonnummer(neueDaten);
+            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
             break;
+            default: ausgabe="falsche Eingabe";
         }
+        return ausgabe;
     }
 }
