@@ -14,6 +14,9 @@ public class Patient
     /**
      * Konstruktor für Objekte der Klasse Patient
      */
+    /**
+     * Konstruktor für Objekte der Klasse Patient
+     */
     public Patient(String Patientenname, String Geburtsdatum, String Geschlecht, String Adresse, String Telefonnummer)
     {
         this.Patientenname = Patientenname;
@@ -25,13 +28,12 @@ public class Patient
         HashImpfungen.put("HepatitisA", new StdImpfung("HepatitisA"));
         HashImpfungen.put("HepatitisB", new StdImpfung("HepatitisB"));
         HashImpfungen.put("Mumps", new StdImpfung("Mumps"));
-        HashImpfungen.put("Röteln", new StdImpfung("Roeteln"));
+        HashImpfungen.put("Roeteln", new StdImpfung("Roeteln"));
         HashImpfungen.put("Masern", new StdImpfung("Masern"));
         HashImpfungen.put("Tetanus", new StdImpfung("Tetanus"));
 
     }
 
-   
     public Patient()
     {
         Patientenname = "Max Mustermann";
@@ -43,7 +45,7 @@ public class Patient
         HashImpfungen.put("HepatitisA", new StdImpfung("HepatitisA"));
         HashImpfungen.put("HepatitisB", new StdImpfung("HepatitisB"));
         HashImpfungen.put("Mumps", new StdImpfung("Mumps"));
-        HashImpfungen.put("Röteln", new StdImpfung("Röteln"));
+        HashImpfungen.put("Roeteln", new StdImpfung("Roeteln"));
         HashImpfungen.put("Masern", new StdImpfung("Masern"));
         HashImpfungen.put("Tetanus", new StdImpfung("Tetanus"));
 
@@ -51,18 +53,28 @@ public class Patient
 
     public String HepatitisAImpfen()
     {
-        StdImpfung A1= HashImpfungen.get("HepatitisA");
-        A1.StatusAendern();
-        String C= A1.setNaechsteImpfung();
-        return C;
+       StdImpfung A1= HashImpfungen.get("HepatitisA");
+        if( A1.getImpfstatus() <3)
+        {
+            A1.StatusAendern();
+            String C= A1.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
     }
 
     public String HepatitisBImpfen()
     {
-        StdImpfung A2= HashImpfungen.get("HepatitisB");
-        A2.StatusAendern();
-        String C= A2.setNaechsteImpfung();
-        return C;
+         StdImpfung A2= HashImpfungen.get("HepatitisB");
+        if( A2.getImpfstatus() <3)
+        {
+            A2.StatusAendern();
+            String C= A2.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
     }
 
     public String MasernImpfen()
@@ -81,9 +93,14 @@ public class Patient
     public String MumpsImpfen()
     {
         StdImpfung A4= HashImpfungen.get("Mumps");
-        A4.StatusAendern();
-        String C= A4.setNaechsteImpfung();
-        return C;
+        if( A4.getImpfstatus() <3)
+        {
+            A4.StatusAendern();
+            String C= A4.setNaechsteImpfung();
+            return C;
+        }
+        else
+            return "Keine weitere Impfung notwendig";
     }
 
     public String RoetelnImpfen()
