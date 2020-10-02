@@ -110,10 +110,10 @@ public class Anwendung
      * @param: String: Name, Impfname
      * @return: int Status
      */
-    public int StatusAbfragen(String Name, String Impfname)
+    public String StatusAbfragen(String Name, String Impfname)
     {
         Patient D= PatientSuchen(Name);
-        int Status= D.Impfuebersicht(Impfname);
+        String Status= D.Impfuebersicht(Impfname);
         return Status;
     }
     
