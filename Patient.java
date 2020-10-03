@@ -57,7 +57,7 @@ public class Patient
         HashImpfungen.put("Masern", new StdImpfung("Masern"));
         HashImpfungen.put("Tetanus", new StdImpfung("Tetanus"));
     }
-    
+
     /**
      * Impft HepatitisA.
      * Speichert die Daten des Objekts StdImpfung mit dem Key "HepatitisA" aus der HashMap HashImpfungen im Objekt A. Durch externen
@@ -72,7 +72,7 @@ public class Patient
      */
     public String HepatitisAImpfen()
     {
-       StdImpfung A= HashImpfungen.get("HepatitisA");
+        StdImpfung A= HashImpfungen.get("HepatitisA");
         if( A.getImpfstatus() <2)
         {
             A.StatusAendern();
@@ -97,7 +97,7 @@ public class Patient
      */
     public String HepatitisBImpfen()
     {
-         StdImpfung A = HashImpfungen.get("HepatitisB");
+        StdImpfung A = HashImpfungen.get("HepatitisB");
         if( A.getImpfstatus() <3)
         {
             A.StatusAendern();
@@ -108,7 +108,7 @@ public class Patient
             return "Keine weitere Impfung notwendig";
     }
 
-     /**
+    /**
      * Impft Masern.
      * Speichert die Daten des Objekts StdImpfung mit dem Key "Masern" aus der HashMap HashImpfungen im Objekt A. Durch externen
      * Methodenaufruf der Methode getImpfstatus wird in der if-Bedingung geprüft, ob der Impfstatus kleiner zwei ist. 
@@ -198,7 +198,7 @@ public class Patient
     public String TetanusImpfen()
     {
         StdImpfung A= HashImpfungen.get("Tetanus");
-        if( A.getImpfstatus() <5)
+        if( A.getImpfstatus() <3)
         {
             A.StatusAendern();
             String C= A.setNaechsteImpfung();
