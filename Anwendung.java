@@ -1,28 +1,31 @@
 
 /**
- * Beschreiben Sie hier die Klasse Anwendung.
+ * Klassenname: Anwendung
+ * Über Anwendung wird Patientenaufnahme und -verwaltung gesteuert. Außerdem kann geimpft werden. Von der Oberfläche soll auf diese Klasse
+ * zugegriffen werden, um die nötigen Methoden auszuführen.
+ * Ein zweiter Konstruktor ist hier nicht sinnvoll, da im Konstruktor nur eine ArrayList erzeugt wird, in die alle neu erstellten Patienten 
+ * eingefügt werden. 
  * 
  * @author Konrad Sautter, Sophia Parpoulas 
  * @version 02.10.2020
  */
 import java.util.ArrayList;
 import java.util.Date;
-public class Anwendung 
+import java.io.*;
+public class Anwendung
+
 
 {
-
-   
     private ArrayList<Patient>Liste;
 
     /**
      * Standard Konstruktor, der durch erzeugen einer ArrayList eine Liste aller Patienten anlegt.
      * @param: Keine
-     * @Return: Keine
+     * @return: Keine
      */
     public Anwendung()
     {
         Liste=new ArrayList<Patient>();
-
     }
 
     /**
@@ -34,44 +37,43 @@ public class Anwendung
     {
         Patient A= new Patient(Name,Geburtstag,Geschlecht,Adresse,Telefonnummer);
         Liste.add(A);
-   }
+    }
 
-   /**
-    * Methode zum Suchen eines Patienten in der ArrayList durch Eingabe des Namens. Name wird verwendet um mit einer foreach Schleife jedes 
-    * Element der Liste zu durchsuchen. Falls der Name mit einem Namen auf der Liste übereinstimmt, wird der Patient zurück gegeben. Ansonsten 
-    * wird eine Fehlermeldung ausgegeben.
-    * @Param: String Name 
-    * @Return: Objekt Patient
-    */ 
-   public Patient PatientSuchen(String Name)
-   {
-       
-       for (Patient e: Liste)
-       {
-           if (e.getPatientenname().equals(Name))
+    /**
+     * Methode zum Suchen eines Patienten in der ArrayList durch Eingabe des Namens. Name wird verwendet um mit einer foreach Schleife jedes 
+     * Element der Liste zu durchsuchen. Falls der Name mit einem Namen auf der Liste übereinstimmt, wird der Patient zurück gegeben. Ansonsten 
+     * wird eine Fehlermeldung ausgegeben.
+     * @param: String Name 
+     * @return: Objekt Patient
+     */ 
+    public Patient PatientSuchen(String Name)
+    {
+      for (Patient e: Liste)
+        {
+            if (e.getPatientenname().equals(Name))
             {
                 return e;
             }
         }
-        System.out.println("Der Patient ist nicht verfügbar");
-        return null;
+       return null;
     }
 
-    
     /**
      * Methode zum löschen eines Patienten durch Eingabe des Namens. Die Methode ruft durch einen internen Methodenaufruf die Methode PatientSuchen()
      * auf. Falls der Patient gefunden wird, wird dieser entfernt.
      * @param: String Name
      * @return: Keine
      */
-    public void PatientLoeschen(String Name) 
+    public void PatientLoeschen(String Name)
     {
-        Patient H = PatientSuchen(Name);
-        if (H!=null)
-        {
-        Liste.remove(H);
-        System.out.println("Der Patient wurde erfolgreich gelöscht.");
+         Patient H = PatientSuchen(Name);
+         if(H!=null){
+         Liste.remove(H);
+         System.out.println("Der Patient wurde erfolgreich gelöscht.");
         }
+        
+        
+         
     }
 
     /**
@@ -79,7 +81,7 @@ public class Anwendung
      * Der Patient wird durch einen internen Methodenaufruf der Methode PatientSuchen() aufgerufen.
      * Anschließend wird durch eine switch-Anweisung die durchzuführende Impfung herausgesucht und durch einen externen Methodenaufruf
      * der jeweiligen Impfmethode in der Klasse Patient durchgeführt.
-     * @ param: String: Patientenname, Impfname
+     * @param: String: Patientenname, Impfname
      * @return: String:"Impfung erfolgreich durchgeführt"
      */
     public String Impfen(String Patientenname, String Impfname)
@@ -103,9 +105,9 @@ public class Anwendung
             default: x="Impfung nicht vorhanden";
             break;
         }
-        return x;
+        return "Impfung durchgefuehrt. Naechste Impfung:  " + x;
     }
-    
+
     /**
      * Methode um den aktuellen Impfstatus eines Patinten abzufragen.
      * Es wird durch einen internen Methodenaufruf der Methode PatientSuchen() auf den Patient zugegriffen. Der Impfstatus wird 
@@ -120,7 +122,7 @@ public class Anwendung
         String Status= D.Impfuebersicht(Impfname);
         return Status;
     }
-    
+
     /**
      * Methode um die Informationen einer Impfung abzurufen.
      * Es wird durch einen internen Methodenaufruf der Methode PatientSuchen() auf den Patient zugegriffen.
@@ -136,4 +138,35 @@ public class Anwendung
         return Info;
     }
 
+    /**
+     * Eine Methode um die Patientendaten zu bearbeiten. Durch eine Switch Anweisung wird je der Eingabe die entsprechende Set Methode aus der
+     * Klasse Patient ausgewählt und durch einen externen Methodenaufruf ausgeführt. Dadurch wird der neue Eingabewert im Patienten gespeichert.
+     * @param: String: zuAenderndeDaten, Patientenname, neueDaten
+     * @return: String: Bestätigung der Änderung im Falle einer der cases. Im Falle eines default: Hinfauf auf falsche Eingabe
+     */
+    public String PatientendatenAendern(String zuAenderndeDaten, String Patientenname, String neueDaten)
+    {
+        Patient X= PatientSuchen(Patientenname);
+        String ausgabe;
+        switch(zuAenderndeDaten)
+        {
+            case "Patientenname": X.setPatientenname(neueDaten);
+            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+            break;
+            case "Geburtsdatum": X.setGeburtsdatum(neueDaten);
+            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+            break;
+            case "Geschlecht": X.setGeschlecht(neueDaten);
+            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+            break;
+            case "Adresse": X.setAdresse(neueDaten);
+            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+            break;
+            case "Telefonnummer": X.setTelefonnummer(neueDaten);
+            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+            break;
+            default: ausgabe="falsche Eingabe";
+        }
+        return ausgabe;
+    }
 }

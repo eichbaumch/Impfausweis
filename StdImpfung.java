@@ -21,54 +21,58 @@ public class StdImpfung
 
     private String Impfname;
     private String Information;
-    private int Abstand;
+    //private int abstand;
     private String naechsteImpfung;
     private int Impfstatus;
     private int maxAnzahl;
-/** Konstruktor um jeder Impfung Attributwerte zu überschreiben (durch eine switch-Anweisung).
- * @param String Impfname
- * @return keine
- * 
- */
+    private int [] abstaende;
+    /** Konstruktor um jeder Impfung Attributwerte zu überschreiben (durch eine switch-Anweisung).
+     * @param String Impfname
+     * @return keine
+     * 
+     */
     public StdImpfung(String Impfname)
     {
+        abstaende= new int [2];
         switch(Impfname)
         {
             case "HepatitisA": Information="bei Häufigem Reisen oder Kontakt zu Kranken, Abstand zwischen der ersten und zweiten Impfung 6 Monate";
-            Abstand=6;
+            abstaende[0]=6;
             naechsteImpfung="0";
             Impfstatus=0;
             maxAnzahl=2;
 
             break;
             case "HepatitisB": Information="Bei häufigem Reisen, geschwächter Immunabwehr und Kontakt zu Kranken, Impfung bei 2, 4 und 6 Monaten";
-            Abstand=2;
+            abstaende[0]=2;
+            abstaende[1]=2;
             naechsteImpfung="0";
             Impfstatus=0;
             maxAnzahl=3;
             break;
             case "Mumps": Information="Viruserkrankung über Tröpfcheninfektion, erste Impfung bei 11 Monaten und zweite bei 15 Monaten ";
-            Abstand=4;
+            abstaende[0]=4;
             naechsteImpfung="0";
             Impfstatus=0;
             maxAnzahl=2;
             break;
 
             case "Roeteln": Information="Erwachsene Frauen und Personal, welches Kontakt zu Schwangeren und Kleinkindern hat, erste Impfung nach 11 Monaten und die zweite nach 15";
-            Abstand=4;
+            abstaende[0]=4;
             naechsteImpfung="0";
             Impfstatus=0;
             maxAnzahl=2;
             break;
 
             case "Masern": Information="Besonders gefährdet sind ungeimpfte Kleinkinder und Jugendliche, erste Impfung nach 13 Monaten und die zweite nach 17 Monaten  ";
-            Abstand=4;   
+            abstaende[0]=4;   
             naechsteImpfung="0";
             Impfstatus=0;
             maxAnzahl=2;
             break;
             case "Tetanus": Information="Soll Wundstarrkrampf durch Krankheitserreger verhindern, erste Impfung nach 2 Monaten, die zweite nach 4 Monaten und die letzte nach 10 Monaten, soll alle 10 Jahre wiederholt werden";
-            Abstand=2;
+            abstaende[0]=2;
+            abstaende[1]=6;
             naechsteImpfung="0";
             Impfstatus=0;
             maxAnzahl=3;
@@ -94,7 +98,7 @@ public class StdImpfung
      */
     public String setNaechsteImpfung()
     {
-        naechsteImpfung=Datum();
+        naechsteImpfung=DatumTest();
         return naechsteImpfung;
     }
 
@@ -105,69 +109,57 @@ public class StdImpfung
      */
     public int getImpfstatus()
     {
-        return StatusAendern();
+        return Impfstatus;
     }
 
-   
     /**
      * Methode, welche durch eine if/else Bedingung für den jeweiligen Impfabstand (Attribut Abstand) das neue Impfdatum berechnet. Die dazu benötigten Methoden wurden zuvor aus der 
      * Java Klassenbibliothek importiert. 
      * @param keine
      * @return String durch externen Methodenaufruf von importierte Klassen.
-   
+
      * 
      */
-    public  String Datum ()
-    {
-        if (Abstand==2)
-        {
+    // public  String Datum ()
+    // {
+        // int i= getImpfstatus()-1; 
+        // Date now= new Date();
+        // Calendar calendar = new GregorianCalendar();
+        // calendar.setTime(now);
+        // Date future;
+        // DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        
+        
+        // if (i<abstaende.length && abstaende[i]==2)
+        // {
+            // calendar.add(Calendar.DAY_OF_MONTH, 61);
+            // future = calendar.getTime();
+            // return dateFormat.format(future);
+        // }
+        // else if(i<abstaende.length && abstaende[i]==4)
+        // {
+            // calendar.add(Calendar.DAY_OF_MONTH, 122);
+            // future = calendar.getTime();
+            // return dateFormat.format(future);
+        // }
+        // else
+        // if(i<abstaende.length && abstaende[i]==6)
+        // {
+            // calendar.add(Calendar.DAY_OF_MONTH, 180);
+            // future = calendar.getTime();
+            // return dateFormat.format(future);
+        // }
+    
+    
+    
+        // else 
+        
 
-            Date now= new Date();
-            Calendar calendar = new GregorianCalendar();
-            calendar.setTime(now);
-
-            calendar.add(Calendar.DAY_OF_MONTH, 61);
-            Date future = calendar.getTime();
-            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-            //System.out.println ("Now:     "+ dateFormat.format(now));
-            //System.out.println("Future:  " + dateFormat.format(future));
-            return dateFormat.format(future);
-
-        }
-        else if(Abstand==4)
-        {
-            Date now= new Date();
-            Calendar calendar = new GregorianCalendar();
-            calendar.setTime(now);
-
-            calendar.add(Calendar.DAY_OF_MONTH, 122);
-            Date future = calendar.getTime();
-            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-            //System.out.println ("Now:     "+ dateFormat.format(now));
-            //System.out.println("Future:  " + dateFormat.format(future));
-            return dateFormat.format(future);
-
-        }
-        else
-        if(Abstand==6)
-        {
-            Date now= new Date();
-            Calendar calendar = new GregorianCalendar();
-            calendar.setTime(now);
-
-            calendar.add(Calendar.DAY_OF_MONTH, 180);
-            Date future = calendar.getTime();
-            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-            //System.out.println ("Now:     "+ dateFormat.format(now));
-            //System.out.println("Future:  " + dateFormat.format(future));
-            return dateFormat.format(future);
-        }
-        else
-            
-        return "Abstand nicht verfügbar";
-
-    }
-
+            // return "Keine weitere Impfung notwendig " ;
+         
+        
+    // }
+    
 
     /**
      * Methode welche durch eine if/else Bedingung den Impfstatus bzw. eine Bildschirmausgabe macht, wenn die maximale Anzahl der Impfungen erreicht wurde. 
@@ -176,6 +168,7 @@ public class StdImpfung
      */
     public int StatusAendern()
     {
+        try{
         if (Impfstatus<2)
         {
             Impfstatus=Impfstatus+1;
@@ -185,9 +178,62 @@ public class StdImpfung
         {
             Impfstatus=Impfstatus+1;
         }
-        
-        else System.out.println("Keine weitere Impfung notwendig");
         return Impfstatus;
     }
+    catch (Exception e)
+    {
+
+        return Integer.parseInt( "Keine weitere Impfung notwendig");
+        //return Impfstatus;
+    }
+}
+    
+    public  String  DatumTest () 
+    {
+        int i= getImpfstatus()-1; 
+        Date now= new Date();
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(now);
+        Date future;
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        
+        try{
+        if (i<abstaende.length && abstaende[i]==2)
+        {
+            calendar.add(Calendar.DAY_OF_MONTH, 61);
+            //future = calendar.getTime();
+            //return dateFormat.format(future);
+        }
+        else if(i<abstaende.length && abstaende[i]==4)
+        {
+            calendar.add(Calendar.DAY_OF_MONTH, 122);
+            //future = calendar.getTime();
+            //return dateFormat.format(future);
+        }
+        else
+        if(i<abstaende.length && abstaende[i]==6)
+        {
+            calendar.add(Calendar.DAY_OF_MONTH, 180);
+            //future = calendar.getTime();
+            //return dateFormat.format(future);
+        }
+        future = calendar.getTime();
+        return dateFormat.format(future);
+    }
+    
+    
+      catch (Exception e)
+    {
+    
+         
+        
+
+             return "Keine weitere Impfung notwendig" ;
+         
+        
+    }
+
+     
+}
 }
 
