@@ -7,7 +7,7 @@
  */
 import java.util.ArrayList;
 import java.util.Date;
-public class Anwendung
+public class Anwendung 
 
 {
 
@@ -64,11 +64,14 @@ public class Anwendung
      * @param: String Name
      * @return: Keine
      */
-    public void PatientLoeschen(String Name)
+    public void PatientLoeschen(String Name) 
     {
         Patient H = PatientSuchen(Name);
+        if (H!=null)
+        {
         Liste.remove(H);
         System.out.println("Der Patient wurde erfolgreich gelöscht.");
+        }
     }
 
     /**
