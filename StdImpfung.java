@@ -98,7 +98,7 @@ public class StdImpfung
      */
     public String setNaechsteImpfung()
     {
-        naechsteImpfung=Datum();
+        naechsteImpfung=DatumTest();
         return naechsteImpfung;
     }
 
@@ -120,39 +120,46 @@ public class StdImpfung
 
      * 
      */
-    public  String Datum ()
-    {
-        int i= getImpfstatus()-1; 
-        Date now= new Date();
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(now);
-        Date future;
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+    // public  String Datum ()
+    // {
+        // int i= getImpfstatus()-1; 
+        // Date now= new Date();
+        // Calendar calendar = new GregorianCalendar();
+        // calendar.setTime(now);
+        // Date future;
+        // DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        
+        
+        // if (i<abstaende.length && abstaende[i]==2)
+        // {
+            // calendar.add(Calendar.DAY_OF_MONTH, 61);
+            // future = calendar.getTime();
+            // return dateFormat.format(future);
+        // }
+        // else if(i<abstaende.length && abstaende[i]==4)
+        // {
+            // calendar.add(Calendar.DAY_OF_MONTH, 122);
+            // future = calendar.getTime();
+            // return dateFormat.format(future);
+        // }
+        // else
+        // if(i<abstaende.length && abstaende[i]==6)
+        // {
+            // calendar.add(Calendar.DAY_OF_MONTH, 180);
+            // future = calendar.getTime();
+            // return dateFormat.format(future);
+        // }
+    
+    
+    
+        // else 
+        
 
-        if (i<abstaende.length && abstaende[i]==2)
-        {
-            calendar.add(Calendar.DAY_OF_MONTH, 61);
-            future = calendar.getTime();
-            return dateFormat.format(future);
-        }
-        else if(i<abstaende.length && abstaende[i]==4)
-        {
-            calendar.add(Calendar.DAY_OF_MONTH, 122);
-            future = calendar.getTime();
-            return dateFormat.format(future);
-        }
-        else
-        if(i<abstaende.length && abstaende[i]==6)
-        {
-            calendar.add(Calendar.DAY_OF_MONTH, 180);
-            future = calendar.getTime();
-            return dateFormat.format(future);
-        }
-        else
-
-            return "Abstand nicht verfügbar";
-
-    }
+            // return "Keine weitere Impfung notwendig " ;
+         
+        
+    // }
+    
 
     /**
      * Methode welche durch eine if/else Bedingung den Impfstatus bzw. eine Bildschirmausgabe macht, wenn die maximale Anzahl der Impfungen erreicht wurde. 
@@ -161,6 +168,7 @@ public class StdImpfung
      */
     public int StatusAendern()
     {
+        try{
         if (Impfstatus<2)
         {
             Impfstatus=Impfstatus+1;
@@ -170,9 +178,62 @@ public class StdImpfung
         {
             Impfstatus=Impfstatus+1;
         }
-
-        else System.out.println("Keine weitere Impfung notwendig");
         return Impfstatus;
     }
+    catch (Exception e)
+    {
+
+        return Integer.parseInt( "Keine weitere Impfung notwendig");
+        //return Impfstatus;
+    }
+}
+    
+    public  String  DatumTest () 
+    {
+        int i= getImpfstatus()-1; 
+        Date now= new Date();
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(now);
+        Date future;
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        
+        try{
+        if (i<abstaende.length && abstaende[i]==2)
+        {
+            calendar.add(Calendar.DAY_OF_MONTH, 61);
+            //future = calendar.getTime();
+            //return dateFormat.format(future);
+        }
+        else if(i<abstaende.length && abstaende[i]==4)
+        {
+            calendar.add(Calendar.DAY_OF_MONTH, 122);
+            //future = calendar.getTime();
+            //return dateFormat.format(future);
+        }
+        else
+        if(i<abstaende.length && abstaende[i]==6)
+        {
+            calendar.add(Calendar.DAY_OF_MONTH, 180);
+            //future = calendar.getTime();
+            //return dateFormat.format(future);
+        }
+        future = calendar.getTime();
+        return dateFormat.format(future);
+    }
+    
+    
+      catch (Exception e)
+    {
+    
+         
+        
+
+             return "Keine weitere Impfung notwendig" ;
+         
+        
+    }
+
+     
+}
 }
 
