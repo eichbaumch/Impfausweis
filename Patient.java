@@ -70,7 +70,7 @@ public class Patient
      * @param keine
      * @return String C, String
      */
-    public String HepatitisAImpfen()
+    public String HepatitisAImpfen() throws Exception
     {
         StdImpfung A= HashImpfungen.get("HepatitisA");
         if( A.getImpfstatus() <2)
@@ -95,7 +95,7 @@ public class Patient
      * @param keine
      * @return String C, String
      */
-    public String HepatitisBImpfen()
+    public String HepatitisBImpfen() throws Exception
     {
         StdImpfung A = HashImpfungen.get("HepatitisB");
         if( A.getImpfstatus() <3)
@@ -120,7 +120,7 @@ public class Patient
      * @param keine
      * @return String C, String
      */
-    public String MasernImpfen()
+    public String MasernImpfen() throws Exception
     {
         StdImpfung A= HashImpfungen.get("Masern");
         if( A.getImpfstatus() <2)
@@ -145,7 +145,7 @@ public class Patient
      * @param keine
      * @return String C, String
      */
-    public String MumpsImpfen()
+    public String MumpsImpfen() throws Exception
     {
         StdImpfung A = HashImpfungen.get("Mumps");
         if( A.getImpfstatus() <2)
@@ -170,7 +170,7 @@ public class Patient
      * @param keine
      * @return String C, String
      */
-    public String RoetelnImpfen()
+    public String RoetelnImpfen() throws Exception
     {
         StdImpfung A= HashImpfungen.get("Roeteln");
         if( A.getImpfstatus() <2)
@@ -195,7 +195,7 @@ public class Patient
      * @param keine
      * @return String C, String
      */
-    public String TetanusImpfen()
+    public String TetanusImpfen() throws Exception
     {
         StdImpfung A= HashImpfungen.get("Tetanus");
         if( A.getImpfstatus() <3)

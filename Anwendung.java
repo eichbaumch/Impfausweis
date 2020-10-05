@@ -84,7 +84,7 @@ public class Anwendung
      * @param: String: Patientenname, Impfname
      * @return: String:"Impfung erfolgreich durchgeführt"
      */
-    public String Impfen(String Patientenname, String Impfname)
+    public String Impfen(String Patientenname, String Impfname) throws Exception
     {
         Patient B= PatientSuchen(Patientenname);
         String x;

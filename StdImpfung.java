@@ -26,6 +26,23 @@ public class StdImpfung
     private int Impfstatus;
     private int maxAnzahl;
     private int [] abstaende;
+
+    /**
+     * Standart-Konstruktor um der Impfung "HepatitisB" Attributwerte zuzuweisen
+     * @param keine
+     * @return keine
+     */
+    public StdImpfung()
+    {
+        Impfname="HepatitisB";
+        Information = "Bei häufigem Reisen, geschwächter Immunabwehr und Kontakt zu Kranken, Impfung bei 2, 4 und 6 Monaten";
+        abstaende[0]=2;
+        abstaende[1]=2;
+        naechsteImpfung = "0";
+        Impfstatus=0;
+        maxAnzahl=0;
+    }
+
     /** Konstruktor um jeder Impfung Attributwerte zu überschreiben (durch eine switch-Anweisung).
      * @param String Impfname
      * @return keine
@@ -41,8 +58,8 @@ public class StdImpfung
             naechsteImpfung="0";
             Impfstatus=0;
             maxAnzahl=2;
-
             break;
+            
             case "HepatitisB": Information="Bei häufigem Reisen, geschwächter Immunabwehr und Kontakt zu Kranken, Impfung bei 2, 4 und 6 Monaten";
             abstaende[0]=2;
             abstaende[1]=2;
@@ -50,6 +67,7 @@ public class StdImpfung
             Impfstatus=0;
             maxAnzahl=3;
             break;
+            
             case "Mumps": Information="Viruserkrankung über Tröpfcheninfektion, erste Impfung bei 11 Monaten und zweite bei 15 Monaten ";
             abstaende[0]=4;
             naechsteImpfung="0";
@@ -70,6 +88,7 @@ public class StdImpfung
             Impfstatus=0;
             maxAnzahl=2;
             break;
+            
             case "Tetanus": Information="Soll Wundstarrkrampf durch Krankheitserreger verhindern, erste Impfung nach 2 Monaten, die zweite nach 4 Monaten und die letzte nach 10 Monaten, soll alle 10 Jahre wiederholt werden";
             abstaende[0]=2;
             abstaende[1]=6;
@@ -96,7 +115,7 @@ public class StdImpfung
      * @param keine
      * @return String naechsteImpfung
      */
-    public String setNaechsteImpfung()
+    public String setNaechsteImpfung() throws Exception
     {
         naechsteImpfung=Datum();
         return naechsteImpfung;
@@ -112,56 +131,13 @@ public class StdImpfung
         return Impfstatus;
     }
 
-    /**
-     * Methode, welche durch eine if/else Bedingung für den jeweiligen Impfabstand (Attribut Abstand) das neue Impfdatum berechnet. Die dazu benötigten Methoden wurden zuvor aus der 
-     * Java Klassenbibliothek importiert. 
-     * @param keine
-     * @return String durch externen Methodenaufruf von importierte Klassen.
-
-     * 
-     */
-    // public  String Datum ()
-    // {
-    // int i= getImpfstatus()-1; 
-    // Date now= new Date();
-    // Calendar calendar = new GregorianCalendar();
-    // calendar.setTime(now);
-    // Date future;
-    // DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-
-    // if (i<abstaende.length && abstaende[i]==2)
-    // {
-    // calendar.add(Calendar.DAY_OF_MONTH, 61);
-    // future = calendar.getTime();
-    // return dateFormat.format(future);
-    // }
-    // else if(i<abstaende.length && abstaende[i]==4)
-    // {
-    // calendar.add(Calendar.DAY_OF_MONTH, 122);
-    // future = calendar.getTime();
-    // return dateFormat.format(future);
-    // }
-    // else
-    // if(i<abstaende.length && abstaende[i]==6)
-    // {
-    // calendar.add(Calendar.DAY_OF_MONTH, 180);
-    // future = calendar.getTime();
-    // return dateFormat.format(future);
-    // }
-
     
-    // else 
-
-    // return "Keine weitere Impfung notwendig " ;
-        
-    // }
-
     /**
-     * Methode welche durch eine if/else Bedingung den Impfstatus bzw. eine Bildschirmausgabe macht, wenn die maximale Anzahl der Impfungen erreicht wurde. 
+     * Methode welche durch eine if/else Bedingung den Impfstatus um +1 erhöht und eine Excetion wirft, wenn die maximale Anzahl der Impfungen erreicht wurde. 
      * @param keine
      * @return int Impfstatus
      */
-    public int StatusAendern()
+    public int StatusAendern() throws Exception
     {
 
         if (Impfstatus<2)
@@ -178,10 +154,19 @@ public class StdImpfung
 
         else
 
-            throw new IllegalArgumentException("Keine weitere Impfung notwendig");
+            throw new Exception("Keine weitere Impfung notwendig");
 
     }
-    public  String  Datum () 
+
+    /**
+     * Methode, welche durch eine if/else Bedingung für den jeweiligen Impfabstand (abstaende[]) das neue Impfdatum berechnet. Die dazu benötigten Methoden wurden zuvor aus der 
+     * Java Klassenbibliothek importiert. Wenn keine weitere Impfung notwenig ist, wird eine Exception geworfen. 
+     * @param keine
+     * @return String durch externen Methodenaufruf von importierte Klassen.
+
+     * 
+     */
+    public  String  Datum () throws Exception
     {
         int i= getImpfstatus()-1; 
         Date now= new Date();
@@ -213,14 +198,12 @@ public class StdImpfung
         }
 
     
-    
         else 
 
-         
 
-            throw new IllegalArgumentException("Keine weitere Impfung notwendig");
+            throw new Exception("Keine weitere Impfung notwendig");
 
     }
-     
+
 }
 
