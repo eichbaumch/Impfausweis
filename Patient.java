@@ -228,7 +228,7 @@ public class Patient
      *
      * @return String Ausgabe
      */
-    public String Impfuebersicht()
+    public String GesamteImpfuebersicht()
 
     {
         Set<String> Impfnamen = HashImpfungen.keySet();

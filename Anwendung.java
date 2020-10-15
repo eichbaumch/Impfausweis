@@ -14,7 +14,6 @@ import java.util.Date;
 import java.io.*;
 public class Anwendung
 
-
 {
     private ArrayList<Patient>Liste;
 
@@ -48,14 +47,14 @@ public class Anwendung
      */ 
     public Patient PatientSuchen(String Name)
     {
-      for (Patient e: Liste)
+        for (Patient e: Liste)
         {
             if (e.getPatientenname().equals(Name))
             {
                 return e;
             }
         }
-       return null;
+        return null;
     }
 
     /**
@@ -66,13 +65,13 @@ public class Anwendung
      */
     public void PatientLoeschen(String Name)
     {
-         Patient H = PatientSuchen(Name);
-         if(H!=null){
-         Liste.remove(H);
-         System.out.println("Der Patient wurde erfolgreich gelöscht.");
+        Patient H = PatientSuchen(Name);
+        if(H!=null)
+        {
+            Liste.remove(H);
+            System.out.println("Der Patient wurde erfolgreich gelöscht.");
         }
-        
-        
+
          
     }
 
@@ -120,6 +119,18 @@ public class Anwendung
     {
         Patient D= PatientSuchen(Name);
         String Status= D.Impfuebersicht(Impfname);
+        return Status;
+    }
+    
+    /**
+     * Methode um den Impfstatus jeder Impfung aufzurufen.
+     * Es wird durch einen internen Methodenaufruf der Methode PatientSuchen() auf den Patient zugegriffen. Durch einen externen Methodenaufruf der Methode GesamteImpfuebersicht() der 
+     * Klasse Patient wird der status jeder Impfung des Patienten in einer Variablen gespeichert und anschließend ausgegeben.
+     */
+    public String AllgemeinerStatus(String Name)
+    {
+        Patient F= PatientSuchen(Name);
+        String Status = F.GesamteImpfuebersicht();
         return Status;
     }
 
