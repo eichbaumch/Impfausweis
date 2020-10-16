@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.*;
 /**
  * In der Klasse Patient wird dessen Name, Geburtsdatum, Geschlecht, Adresse und Telefonnummer gepeichert. 
  * Jedem Patienten wird automatisch ein Paket mit sechs Standardimpfungen zugewiesen. Dem Patient kann jede Standardimpfung 
@@ -67,10 +67,9 @@ public class Patient
      * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus zwei, wird der String "Keine weitere 
      * Impfung notwendig" ausgegeben.
      *
-     * @param keine
      * @return String C, String
      */
-    public String HepatitisAImpfen()
+    public String HepatitisAImpfen() throws Exception
     {
         StdImpfung A= HashImpfungen.get("HepatitisA");
         if( A.getImpfstatus() <2)
@@ -80,7 +79,7 @@ public class Patient
             return C;
         }
         else
-            return "Keine weitere Impfung notwendig";
+            throw new Exception("Keine weitere HepatitisA-Impfung notwendig");
     }
 
     /**
@@ -92,12 +91,12 @@ public class Patient
      * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus drei, wird der String "Keine weitere 
      * Impfung notwendig" ausgegeben.
      *
-     * @param keine
      * @return String C, String
      */
-    public String HepatitisBImpfen()
+    public String HepatitisBImpfen() throws Exception
     {
         StdImpfung A = HashImpfungen.get("HepatitisB");
+
         if( A.getImpfstatus() <3)
         {
             A.StatusAendern();
@@ -105,7 +104,7 @@ public class Patient
             return C;
         }
         else
-            return "Keine weitere Impfung notwendig";
+            throw new Exception("Keine weitere Impfung notwendig");    
     }
 
     /**
@@ -117,10 +116,9 @@ public class Patient
      * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus zwei, wird der String "Keine weitere 
      * Impfung notwendig" ausgegeben.
      *
-     * @param keine
      * @return String C, String
      */
-    public String MasernImpfen()
+    public String MasernImpfen() throws Exception
     {
         StdImpfung A= HashImpfungen.get("Masern");
         if( A.getImpfstatus() <2)
@@ -130,7 +128,7 @@ public class Patient
             return C;
         }
         else
-            return "Keine weitere Impfung notwendig";
+            throw new Exception("Keine weitere Impfung notwendig");
     }
 
     /**
@@ -142,10 +140,9 @@ public class Patient
      * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus zwei, wird der String "Keine weitere 
      * Impfung notwendig" ausgegeben.
      *
-     * @param keine
      * @return String C, String
      */
-    public String MumpsImpfen()
+    public String MumpsImpfen() throws Exception
     {
         StdImpfung A = HashImpfungen.get("Mumps");
         if( A.getImpfstatus() <2)
@@ -155,7 +152,7 @@ public class Patient
             return C;
         }
         else
-            return "Keine weitere Impfung notwendig";
+            throw new Exception("Keine weitere Impfung notwendig");
     }
 
     /**
@@ -167,10 +164,9 @@ public class Patient
      * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus zwei, wird der String "Keine weitere 
      * Impfung notwendig" ausgegeben.
      *
-     * @param keine
      * @return String C, String
      */
-    public String RoetelnImpfen()
+    public String RoetelnImpfen() throws Exception
     {
         StdImpfung A= HashImpfungen.get("Roeteln");
         if( A.getImpfstatus() <2)
@@ -180,7 +176,7 @@ public class Patient
             return C;
         }
         else
-            return "Keine weitere Impfung notwendig";
+            throw new Exception("Keine weitere Impfung notwendig");
     }
 
     /**
@@ -192,20 +188,19 @@ public class Patient
      * String-Variable C gespeichert, welche dann ausgegeben wird. Ist der Impfstatus fünf, wird der String "Keine weitere 
      * Impfung notwendig" ausgegeben.
      *
-     * @param keine
      * @return String C, String
      */
-    public String TetanusImpfen()
+    public String TetanusImpfen() throws Exception
     {
         StdImpfung A= HashImpfungen.get("Tetanus");
-        if( A.getImpfstatus() <3)
+        if( A.getImpfstatus() <5)
         {
             A.StatusAendern();
             String C= A.setNaechsteImpfung();
             return C;
         }
         else
-            return "Keine weitere Impfung notwendig";
+            throw new Exception("Keine weitere Impfung notwendig");
     }
 
     /**
@@ -223,6 +218,27 @@ public class Patient
         int ImpfStatus = A.getImpfstatus();
         String Ausgabe = Impfname + ": " + ImpfStatus;
         return Ausgabe;
+    }
+
+    /**
+     * Gibt aktuellen Status aller Standardimpfungen zurück.
+     * Speichert alle Impfnamen der Objekte der HashMap HashImpfungen in der Set-Liste Impfnamen. Ruft mit einer for-each-Schleife
+     * für alle Impfnamen über einen internen Methodenaufruf die Methode Impfuebersicht() auf. Speichert die Impfstatus in der 
+     * String-Variable Ausgabe und gibt diese dann aus.
+     *
+     * @return String Ausgabe
+     */
+    public String GesamteImpfuebersicht()
+
+    {
+        Set<String> Impfnamen = HashImpfungen.keySet();
+        String Ausgabe = "";
+        for(String s: Impfnamen)
+        {
+            String Impfstatus = Impfuebersicht(s);
+            Ausgabe = Ausgabe + Impfstatus + "\n" ;
+        }
+        return Ausgabe; 
     }
 
     /**
@@ -247,7 +263,6 @@ public class Patient
      * Überschreibt den Patientenname mit dem String-Parameter neuerName.
      * 
      * @param String neuerName
-     * @return keine
      * 
      */
     public void setPatientenname(String neuerName)
@@ -260,7 +275,6 @@ public class Patient
      * Überschreibt das Geburtsdatum mit dem String-Parameter neuesGeburtsdatum.
      * 
      * @param String neuesGeburtsdatum
-     * @return keine
      * 
      */
     public void setGeburtsdatum(String neuesGeburtsdatum)
@@ -273,7 +287,6 @@ public class Patient
      * Überschreibt das Geschlecht mit dem String-Parameter neuesGeschlecht.
      * 
      * @param String neuesGeschlecht
-     * @return keine
      * 
      */
     public void setGeschlecht(String neuesGeschlecht)
@@ -286,7 +299,6 @@ public class Patient
      * Überschreibt die Adresse mit dem String-Parameter neueAdresse.
      * 
      * @param String neueAdresse
-     * @return keine
      * 
      */
     public void setAdresse(String neueAdresse)
@@ -299,7 +311,6 @@ public class Patient
      * Überschreibt die Telefonnummer mit dem String-Parameter neueTelefonnummer.
      * 
      * @param String neueTelefonnummer
-     * @return keine
      * 
      */
     public void setTelefonnummer(String neueTelefonnummer)
@@ -310,7 +321,6 @@ public class Patient
     /**
      * Gibt den Patientennamen aus
      * 
-     * @param keine
      * @return String Patientenname
      * 
      */
@@ -322,7 +332,6 @@ public class Patient
     /**
      * Gibt das Geburtsdatum aus
      * 
-     * @param keine
      * @return String Geburtsdatum
      * 
      */
@@ -334,7 +343,6 @@ public class Patient
     /**
      * Gibt das Geschlecht aus
      * 
-     * @param keine
      * @return String Geschlecht
      * 
      */
@@ -346,7 +354,6 @@ public class Patient
     /**
      * Gibt die Adresse aus
      * 
-     * @param keine
      * @return String Adresse
      * 
      */
@@ -358,7 +365,6 @@ public class Patient
     /**
      * Gibt die Telefonnummer aus
      * 
-     * @param keine
      * @return String Telefonnummer
      * 
      */
