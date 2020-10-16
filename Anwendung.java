@@ -73,7 +73,7 @@ public class Anwendung
         }
 
         else
-        throw new NullPointerException("pATIENT NICHT VORHANDEN2");
+        throw new NullPointerException("Patient nicht vorhanden");
 
          
 
@@ -119,11 +119,15 @@ public class Anwendung
      * @param: String: Name, Impfname
      * @return: int Status
      */
-    public String StatusAbfragen(String Name, String Impfname)
+    public String StatusAbfragen(String Name, String Impfname) throws NullPointerException
     {
         Patient D= PatientSuchen(Name);
+        if(D!=null)
+        {
         String Status= D.Impfuebersicht(Impfname);
         return Status;
+    }
+    else throw new NullPointerException ("Patient nicht vorhanden");
     }
     
     /**
@@ -131,11 +135,15 @@ public class Anwendung
      * Es wird durch einen internen Methodenaufruf der Methode PatientSuchen() auf den Patient zugegriffen. Durch einen externen Methodenaufruf der Methode GesamteImpfuebersicht() der 
      * Klasse Patient wird der status jeder Impfung des Patienten in einer Variablen gespeichert und anschließend ausgegeben.
      */
-    public String AllgemeinerStatus(String Name)
+    public String AllgemeinerStatus(String Name) throws NullPointerException
     {
         Patient F= PatientSuchen(Name);
+        if(F!=null)
+        {
         String Status = F.GesamteImpfuebersicht();
         return Status;
+    }
+    else throw new NullPointerException("Patient nicht vorhanden");
     }
 
     /**
@@ -146,11 +154,15 @@ public class Anwendung
      * @param: String: Name, Impfname
      * @return: String Info
      */
-    public String InformationenAbfragen(String Name, String Impfname)
+    public String InformationenAbfragen(String Name, String Impfname) throws NullPointerException
     {
         Patient E = PatientSuchen(Name);
+        if(E!=null)
+        {
         String Info= E.Informationsuebersicht(Impfname);
         return Info;
+    }
+    else throw new NullPointerException ("Patient nicht vorhanden");
     }
 
     /**
@@ -162,6 +174,8 @@ public class Anwendung
     public String PatientendatenAendern(String zuAenderndeDaten, String Patientenname, String neueDaten)
     {
         Patient X= PatientSuchen(Patientenname);
+        if(X!=null)
+        {
         String ausgabe;
         switch(zuAenderndeDaten)
         {
@@ -183,5 +197,7 @@ public class Anwendung
             default: ausgabe="falsche Eingabe";
         }
         return ausgabe;
+    }
+    else throw new NullPointerException ("Patient nicht vorhanden");
     }
 }
