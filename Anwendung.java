@@ -64,7 +64,7 @@ public class Anwendung
             {
                 return e;
             }
-            
+
         }
         return null;
     }
@@ -85,7 +85,6 @@ public class Anwendung
         }
         else
             throw new NullPointerException("Patient nicht vorhanden");
-
     }
 
     /**
@@ -98,26 +97,30 @@ public class Anwendung
      */
     public String Impfen(String Patientenname, String Impfname) throws Exception
     {
-        Patient B= PatientSuchen(Patientenname);
-        String x;
-        switch(Impfname)
+        Patient B= PatientSuchen(Patientenname); 
+        if(B!=null)
         {
-            case "HepatitisA": x="Impfung durchgefuehrt. Naechste Impfung:   " +B.HepatitisAImpfen();
-            break;
-            case "HepatitisB": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.HepatitisBImpfen();
-            break;
-            case "Masern": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.MasernImpfen();
-            break;
-            case "Mumps": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.MumpsImpfen();
-            break;
-            case"Roeteln": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.RoetelnImpfen();
-            break;
-            case "Tetanus": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.TetanusImpfen();
-            break;
-            default: x="Impfung nicht vorhanden";
-            break;
+            String x;
+            switch(Impfname)
+            {
+                case "HepatitisA": x="Impfung durchgefuehrt. Naechste Impfung:   " +B.HepatitisAImpfen();
+                break;
+                case "HepatitisB": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.HepatitisBImpfen();
+                break;
+                case "Masern": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.MasernImpfen();
+                break;
+                case "Mumps": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.MumpsImpfen();
+                break;
+                case"Roeteln": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.RoetelnImpfen();
+                break;
+                case "Tetanus": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.TetanusImpfen();
+                break;
+                default: x="Impfung nicht vorhanden";
+                break;
+            }
+            return  x;
         }
-        return  x;
+        else throw new NullPointerException ("Patient nicht vorhanden");
     }
 
     /**
@@ -133,10 +136,12 @@ public class Anwendung
         Patient D= PatientSuchen(Name);
         if(D!=null)
         {
+
             String Status= D.Impfuebersicht(Impfname);
             return Status;
         }
         else throw new NullPointerException ("Patient nicht vorhanden");
+
     }
 
     /**
@@ -151,10 +156,12 @@ public class Anwendung
         Patient F= PatientSuchen(Name);
         if(F!=null)
         {
+
             String Status = F.GesamteImpfuebersicht();
             return Status;
         }
         else throw new NullPointerException("Patient nicht vorhanden");
+
     }
 
     /**
@@ -174,6 +181,7 @@ public class Anwendung
             return Info;
         }
         else throw new NullPointerException ("Patient nicht vorhanden");
+
     }
 
     /**
@@ -185,11 +193,14 @@ public class Anwendung
     public String PatientendatenAendern(String zuAenderndeDaten, String Patientenname, String neueDaten)
     {
         Patient X= PatientSuchen(Patientenname);
+        String ausgabe;
         if(X!=null)
+
         {
-            String ausgabe;
             switch(zuAenderndeDaten)
+
             {
+
                 case "Patientenname": X.setPatientenname(neueDaten);
                 ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
                 break;
@@ -211,4 +222,5 @@ public class Anwendung
         }
         else throw new NullPointerException ("Patient nicht vorhanden");
     }
+
 }
