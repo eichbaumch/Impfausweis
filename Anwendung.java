@@ -90,7 +90,9 @@ public class Anwendung
      */
     public String Impfen(String Patientenname, String Impfname) throws Exception
     {
-        Patient B= PatientSuchen(Patientenname);
+        Patient B= PatientSuchen(Patientenname); 
+        if(B!=null)
+        {
         String x;
         switch(Impfname)
         {
@@ -111,6 +113,8 @@ public class Anwendung
         }
         return "Impfung durchgefuehrt. Naechste Impfung:  " + x;
     }
+    else throw new NullPointerException ("Patient nicht vorhanden");
+}
 
     /**
      * Methode um den aktuellen Impfstatus eines Patinten abzufragen.
