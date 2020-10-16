@@ -83,6 +83,7 @@ public class Anwendung
             Liste.remove(H);
             System.out.println("Der Patient wurde erfolgreich gelöscht.");
         }
+
         else
             throw new NullPointerException("Patient nicht vorhanden");
     }
@@ -98,9 +99,11 @@ public class Anwendung
     public String Impfen(String Patientenname, String Impfname) throws Exception
     {
         Patient B= PatientSuchen(Patientenname); 
+        String x;
         if(B!=null)
+
         {
-            String x;
+
             switch(Impfname)
             {
                 case "HepatitisA": x="Impfung durchgefuehrt. Naechste Impfung:   " +B.HepatitisAImpfen();
@@ -121,6 +124,7 @@ public class Anwendung
             return  x;
         }
         else throw new NullPointerException ("Patient nicht vorhanden");
+
     }
 
     /**
@@ -136,12 +140,10 @@ public class Anwendung
         Patient D= PatientSuchen(Name);
         if(D!=null)
         {
-
             String Status= D.Impfuebersicht(Impfname);
             return Status;
         }
         else throw new NullPointerException ("Patient nicht vorhanden");
-
     }
 
     /**
@@ -161,7 +163,6 @@ public class Anwendung
             return Status;
         }
         else throw new NullPointerException("Patient nicht vorhanden");
-
     }
 
     /**
@@ -181,7 +182,6 @@ public class Anwendung
             return Info;
         }
         else throw new NullPointerException ("Patient nicht vorhanden");
-
     }
 
     /**
@@ -193,6 +193,7 @@ public class Anwendung
     public String PatientendatenAendern(String zuAenderndeDaten, String Patientenname, String neueDaten)
     {
         Patient X= PatientSuchen(Patientenname);
+
         String ausgabe;
         if(X!=null)
 
@@ -222,5 +223,5 @@ public class Anwendung
         }
         else throw new NullPointerException ("Patient nicht vorhanden");
     }
-
 }
+

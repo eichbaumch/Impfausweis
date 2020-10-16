@@ -41,6 +41,7 @@ public class StdImpfungTest
     }
 
     @Test
+
     public void NaechsteImpfung()
     {
         StdImpfung stdImpfu1 = new StdImpfung("HepatitisA");
@@ -70,6 +71,24 @@ public class StdImpfungTest
         // assertEquals(2, stdImpfu6.StatusAendern());
         // assertEquals(3, stdImpfu6.StatusAendern());
     }
+
+    @Test
+    public void Impfstatus()
+    {
+        StdImpfung stdImpfu3 = new StdImpfung("HepatitisA");
+        //assertEquals(, stdImpfu3.getImpfstatus());
+    }
+    
+    @Test
+
+    public void Informationen()
+    {
+        StdImpfung stdImpfu1 = new StdImpfung("HepatitisA");
+        //assertEquals(, stdImpfu1.getImpfstatus());
+    }
+
+
+
 }
 
 
