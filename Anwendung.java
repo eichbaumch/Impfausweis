@@ -64,16 +64,15 @@ public class Anwendung
      * @param: String Name
      * @return: Keine
      */
-    public void PatientLoeschen(String Name)
+    public void PatientLoeschen(String Name) throws NullPointerException
     {
          Patient H = PatientSuchen(Name);
          if(H!=null){
          Liste.remove(H);
          System.out.println("Der Patient wurde erfolgreich gelöscht.");
         }
-        
-        
-         
+        else
+        throw new NullPointerException("pATIENT NICHT VORHANDEN2");
     }
 
     /**
