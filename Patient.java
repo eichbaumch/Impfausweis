@@ -75,7 +75,10 @@ public class Patient
         if( A.getImpfstatus() <2)
         {
             A.StatusAendern();
+           
             String C= A.setNaechsteImpfung();
+        
+        
             return C;
         }
         else
