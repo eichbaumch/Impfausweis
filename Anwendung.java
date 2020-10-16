@@ -72,6 +72,7 @@ public class Anwendung
             System.out.println("Der Patient wurde erfolgreich gelöscht.");
         }
 
+
         else
         throw new NullPointerException("Patient nicht vorhanden");
 
@@ -127,6 +128,7 @@ public class Anwendung
         String Status= D.Impfuebersicht(Impfname);
         return Status;
     }
+
     else throw new NullPointerException ("Patient nicht vorhanden");
     }
     
@@ -144,7 +146,9 @@ public class Anwendung
         return Status;
     }
     else throw new NullPointerException("Patient nicht vorhanden");
-    }
+}
+    
+  
 
     /**
      * Methode um die Informationen einer Impfung abzurufen.
