@@ -75,7 +75,10 @@ public class Patient
         if( A.getImpfstatus() <2)
         {
             A.StatusAendern();
+           
             String C= A.setNaechsteImpfung();
+        
+        
             return C;
         }
         else
@@ -236,7 +239,7 @@ public class Patient
         for(String s: Impfnamen)
         {
             String Impfstatus = Impfuebersicht(s);
-            Ausgabe = Ausgabe + Impfstatus + "\n" ;
+            Ausgabe = Ausgabe + Impfstatus;
         }
         return Ausgabe; 
     }

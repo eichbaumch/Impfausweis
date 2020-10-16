@@ -28,6 +28,17 @@ public class Anwendung
     }
 
     /**
+     * Get- Methode zum Testen. Die Methode gibt die Länge der ArrayList aus, um zu testen, ob ein Patient hinzugefügt
+     * wurde.
+     * @param: Keine
+     * @return: Laenge als int Zahl
+     */
+    public int getLaenge()
+    {
+        return Liste.size();
+    }
+
+    /**
      * Methode zum anlegen eines neuen Patienten, durch erzeugen eines neuen Objekts der Klasse Patient. Anschließendes Speichern in der ArrayList.
      * @param: String: Name, Geburtstag, Geschlecht, Adresse, Telefonnummer -> Attribute des Objekts Patient
      * @return: Keine
@@ -71,8 +82,7 @@ public class Anwendung
             Liste.remove(H);
             System.out.println("Der Patient wurde erfolgreich gelöscht.");
         }
-
-         
+        
     }
 
     /**
@@ -89,22 +99,22 @@ public class Anwendung
         String x;
         switch(Impfname)
         {
-            case "HepatitisA": x=B.HepatitisAImpfen();
+            case "HepatitisA": x="Impfung durchgefuehrt. Naechste Impfung:   " +B.HepatitisAImpfen();
             break;
-            case "HepatitisB": x=B.HepatitisBImpfen();
+            case "HepatitisB": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.HepatitisBImpfen();
             break;
-            case "Masern": x=B.MasernImpfen();
+            case "Masern": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.MasernImpfen();
             break;
-            case "Mumps": x=B.MumpsImpfen();
+            case "Mumps": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.MumpsImpfen();
             break;
-            case"Roeteln": x=B.RoetelnImpfen();
+            case"Roeteln": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.RoetelnImpfen();
             break;
-            case "Tetanus": x=B.TetanusImpfen();
+            case "Tetanus": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.TetanusImpfen();
             break;
             default: x="Impfung nicht vorhanden";
             break;
         }
-        return "Impfung durchgefuehrt. Naechste Impfung:  " + x;
+        return  x;
     }
 
     /**
@@ -121,11 +131,13 @@ public class Anwendung
         String Status= D.Impfuebersicht(Impfname);
         return Status;
     }
-    
+
     /**
      * Methode um den Impfstatus jeder Impfung aufzurufen.
      * Es wird durch einen internen Methodenaufruf der Methode PatientSuchen() auf den Patient zugegriffen. Durch einen externen Methodenaufruf der Methode GesamteImpfuebersicht() der 
      * Klasse Patient wird der status jeder Impfung des Patienten in einer Variablen gespeichert und anschließend ausgegeben.
+     * @param: String: Name
+     * @return: String Status
      */
     public String AllgemeinerStatus(String Name)
     {
