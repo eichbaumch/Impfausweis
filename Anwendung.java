@@ -64,6 +64,7 @@ public class Anwendung
             {
                 return e;
             }
+            
         }
         return null;
     }
@@ -74,7 +75,7 @@ public class Anwendung
      * @param: String Name
      * @return: Keine
      */
-    public void PatientLoeschen(String Name)
+    public void PatientLoeschen(String Name) throws NullPointerException
     {
         Patient H = PatientSuchen(Name);
         if(H!=null)
@@ -82,7 +83,9 @@ public class Anwendung
             Liste.remove(H);
             System.out.println("Der Patient wurde erfolgreich gelöscht.");
         }
-        
+        else
+            throw new NullPointerException("Patient nicht vorhanden");
+
     }
 
     /**
@@ -125,11 +128,15 @@ public class Anwendung
      * @param: String: Name, Impfname
      * @return: int Status
      */
-    public String StatusAbfragen(String Name, String Impfname)
+    public String StatusAbfragen(String Name, String Impfname) throws NullPointerException
     {
         Patient D= PatientSuchen(Name);
-        String Status= D.Impfuebersicht(Impfname);
-        return Status;
+        if(D!=null)
+        {
+            String Status= D.Impfuebersicht(Impfname);
+            return Status;
+        }
+        else throw new NullPointerException ("Patient nicht vorhanden");
     }
 
     /**
@@ -139,11 +146,15 @@ public class Anwendung
      * @param: String: Name
      * @return: String Status
      */
-    public String AllgemeinerStatus(String Name)
+    public String AllgemeinerStatus(String Name) throws NullPointerException
     {
         Patient F= PatientSuchen(Name);
-        String Status = F.GesamteImpfuebersicht();
-        return Status;
+        if(F!=null)
+        {
+            String Status = F.GesamteImpfuebersicht();
+            return Status;
+        }
+        else throw new NullPointerException("Patient nicht vorhanden");
     }
 
     /**
@@ -154,11 +165,15 @@ public class Anwendung
      * @param: String: Name, Impfname
      * @return: String Info
      */
-    public String InformationenAbfragen(String Name, String Impfname)
+    public String InformationenAbfragen(String Name, String Impfname) throws NullPointerException
     {
         Patient E = PatientSuchen(Name);
-        String Info= E.Informationsuebersicht(Impfname);
-        return Info;
+        if(E!=null)
+        {
+            String Info= E.Informationsuebersicht(Impfname);
+            return Info;
+        }
+        else throw new NullPointerException ("Patient nicht vorhanden");
     }
 
     /**
@@ -170,26 +185,30 @@ public class Anwendung
     public String PatientendatenAendern(String zuAenderndeDaten, String Patientenname, String neueDaten)
     {
         Patient X= PatientSuchen(Patientenname);
-        String ausgabe;
-        switch(zuAenderndeDaten)
+        if(X!=null)
         {
-            case "Patientenname": X.setPatientenname(neueDaten);
-            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
-            break;
-            case "Geburtsdatum": X.setGeburtsdatum(neueDaten);
-            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
-            break;
-            case "Geschlecht": X.setGeschlecht(neueDaten);
-            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
-            break;
-            case "Adresse": X.setAdresse(neueDaten);
-            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
-            break;
-            case "Telefonnummer": X.setTelefonnummer(neueDaten);
-            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
-            break;
-            default: ausgabe="falsche Eingabe";
+            String ausgabe;
+            switch(zuAenderndeDaten)
+            {
+                case "Patientenname": X.setPatientenname(neueDaten);
+                ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+                break;
+                case "Geburtsdatum": X.setGeburtsdatum(neueDaten);
+                ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+                break;
+                case "Geschlecht": X.setGeschlecht(neueDaten);
+                ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+                break;
+                case "Adresse": X.setAdresse(neueDaten);
+                ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+                break;
+                case "Telefonnummer": X.setTelefonnummer(neueDaten);
+                ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+                break;
+                default: ausgabe="falsche Eingabe";
+            }
+            return ausgabe;
         }
-        return ausgabe;
+        else throw new NullPointerException ("Patient nicht vorhanden");
     }
 }
