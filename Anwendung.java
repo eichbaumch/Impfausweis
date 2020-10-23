@@ -45,7 +45,7 @@ public class Anwendung
      * @param: String Name 
      * @return: Objekt Patient
      */ 
-    public Patient PatientSuchen(String Name)
+    public Patient PatientSuchen(String Name) throws Exception
     {
         for (Patient e: Liste)
         {
@@ -53,6 +53,7 @@ public class Anwendung
             {
                 return e;
             }
+            else throw new Exception ("Patien nicht vorhanden");
         }
         return null;
     }
