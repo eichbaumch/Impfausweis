@@ -28,6 +28,17 @@ public class Anwendung
     }
 
     /**
+     * Get- Methode zum Testen. Die Methode gibt die Länge der ArrayList aus, um zu testen, ob ein Patient hinzugefügt
+     * wurde.
+     * @param: Keine
+     * @return: Laenge als int Zahl
+     */
+    public int getLaenge()
+    {
+        return Liste.size();
+    }
+
+    /**
      * Methode zum anlegen eines neuen Patienten, durch erzeugen eines neuen Objekts der Klasse Patient. Anschließendes Speichern in der ArrayList.
      * @param: String: Name, Geburtstag, Geschlecht, Adresse, Telefonnummer -> Attribute des Objekts Patient
      * @return: Keine
@@ -45,7 +56,7 @@ public class Anwendung
      * @param: String Name 
      * @return: Objekt Patient
      */ 
-    public Patient PatientSuchen(String Name) throws Exception
+    public Patient PatientSuchen(String Name)// throws Exception
     {
         for (Patient e: Liste)
         {
@@ -53,7 +64,9 @@ public class Anwendung
             {
                 return e;
             }
-            else throw new Exception ("Patien nicht vorhanden");
+
+            //else throw new Exception ("Patien nicht vorhanden");
+
         }
         return null;
     }
@@ -73,12 +86,8 @@ public class Anwendung
             System.out.println("Der Patient wurde erfolgreich gelöscht.");
         }
 
-
         else
-        throw new NullPointerException("Patient nicht vorhanden");
-
-         
-
+            throw new NullPointerException("Patient nicht vorhanden");
     }
 
     /**
@@ -92,30 +101,33 @@ public class Anwendung
     public String Impfen(String Patientenname, String Impfname) throws Exception
     {
         Patient B= PatientSuchen(Patientenname); 
-        if(B!=null)
-        {
         String x;
-        switch(Impfname)
+        if(B!=null)
+
         {
-            case "HepatitisA": x=B.HepatitisAImpfen();
-            break;
-            case "HepatitisB": x=B.HepatitisBImpfen();
-            break;
-            case "Masern": x=B.MasernImpfen();
-            break;
-            case "Mumps": x=B.MumpsImpfen();
-            break;
-            case"Roeteln": x=B.RoetelnImpfen();
-            break;
-            case "Tetanus": x=B.TetanusImpfen();
-            break;
-            default: x="Impfung nicht vorhanden";
-            break;
+
+            switch(Impfname)
+            {
+                case "HepatitisA": x="Impfung durchgefuehrt. Naechste Impfung:   " +B.HepatitisAImpfen();
+                break;
+                case "HepatitisB": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.HepatitisBImpfen();
+                break;
+                case "Masern": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.MasernImpfen();
+                break;
+                case "Mumps": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.MumpsImpfen();
+                break;
+                case"Roeteln": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.RoetelnImpfen();
+                break;
+                case "Tetanus": x="Impfung durchgefuehrt. Naechste Impfung:  " +B.TetanusImpfen();
+                break;
+                default: x="Impfung nicht vorhanden";
+                break;
+            }
+            return  x;
         }
-        return "Impfung durchgefuehrt. Naechste Impfung:  " + x;
+        else throw new NullPointerException ("Patient nicht vorhanden");
+
     }
-    else throw new NullPointerException ("Patient nicht vorhanden");
-}
 
     /**
      * Methode um den aktuellen Impfstatus eines Patinten abzufragen.
@@ -130,30 +142,30 @@ public class Anwendung
         Patient D= PatientSuchen(Name);
         if(D!=null)
         {
-        String Status= D.Impfuebersicht(Impfname);
-        return Status;
+            String Status= D.Impfuebersicht(Impfname);
+            return Status;
+        }
+        else throw new NullPointerException ("Patient nicht vorhanden");
     }
 
-    else throw new NullPointerException ("Patient nicht vorhanden");
-    }
-    
     /**
      * Methode um den Impfstatus jeder Impfung aufzurufen.
      * Es wird durch einen internen Methodenaufruf der Methode PatientSuchen() auf den Patient zugegriffen. Durch einen externen Methodenaufruf der Methode GesamteImpfuebersicht() der 
      * Klasse Patient wird der status jeder Impfung des Patienten in einer Variablen gespeichert und anschließend ausgegeben.
+     * @param: String: Name
+     * @return: String Status
      */
     public String AllgemeinerStatus(String Name) throws NullPointerException
     {
         Patient F= PatientSuchen(Name);
         if(F!=null)
         {
-        String Status = F.GesamteImpfuebersicht();
-        return Status;
+
+            String Status = F.GesamteImpfuebersicht();
+            return Status;
+        }
+        else throw new NullPointerException("Patient nicht vorhanden");
     }
-    else throw new NullPointerException("Patient nicht vorhanden");
-}
-    
-  
 
     /**
      * Methode um die Informationen einer Impfung abzurufen.
@@ -168,10 +180,10 @@ public class Anwendung
         Patient E = PatientSuchen(Name);
         if(E!=null)
         {
-        String Info= E.Informationsuebersicht(Impfname);
-        return Info;
-    }
-    else throw new NullPointerException ("Patient nicht vorhanden");
+            String Info= E.Informationsuebersicht(Impfname);
+            return Info;
+        }
+        else throw new NullPointerException ("Patient nicht vorhanden");
     }
 
     /**
@@ -183,30 +195,35 @@ public class Anwendung
     public String PatientendatenAendern(String zuAenderndeDaten, String Patientenname, String neueDaten)
     {
         Patient X= PatientSuchen(Patientenname);
-        if(X!=null)
-        {
+
         String ausgabe;
-        switch(zuAenderndeDaten)
+        if(X!=null)
+
         {
-            case "Patientenname": X.setPatientenname(neueDaten);
-            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
-            break;
-            case "Geburtsdatum": X.setGeburtsdatum(neueDaten);
-            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
-            break;
-            case "Geschlecht": X.setGeschlecht(neueDaten);
-            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
-            break;
-            case "Adresse": X.setAdresse(neueDaten);
-            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
-            break;
-            case "Telefonnummer": X.setTelefonnummer(neueDaten);
-            ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
-            break;
-            default: ausgabe="falsche Eingabe";
+            switch(zuAenderndeDaten)
+
+            {
+
+                case "Patientenname": X.setPatientenname(neueDaten);
+                ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+                break;
+                case "Geburtsdatum": X.setGeburtsdatum(neueDaten);
+                ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+                break;
+                case "Geschlecht": X.setGeschlecht(neueDaten);
+                ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+                break;
+                case "Adresse": X.setAdresse(neueDaten);
+                ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+                break;
+                case "Telefonnummer": X.setTelefonnummer(neueDaten);
+                ausgabe= zuAenderndeDaten + "  erfolgreich geändert";
+                break;
+                default: ausgabe="falsche Eingabe";
+            }
+            return ausgabe;
         }
-        return ausgabe;
-    }
-    else throw new NullPointerException ("Patient nicht vorhanden");
+        else throw new NullPointerException ("Patient nicht vorhanden");
     }
 }
+

@@ -174,7 +174,7 @@ public class StdImpfung
         calendar.setTime(now);
         Date future;
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-
+        
         if (i<abstaende.length && abstaende[i]==2)
         {
             calendar.add(Calendar.DAY_OF_MONTH, 61);
@@ -196,13 +196,8 @@ public class StdImpfung
             future = calendar.getTime();
             return dateFormat.format(future);
         }
-
-    
-        else 
-
-
-            throw new Exception("Keine weitere Impfung notwendig");
-
+        else
+        throw new Exception("Keine weitere Impfung notwendig");
     }
 
 }
