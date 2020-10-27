@@ -6,6 +6,7 @@ public class impfenGUI extends javax.swing.JFrame {
 
     private String Patientenname, Impfung, Geburtsdatum, Geschlecht, Adresse, Telefonnummer;
     private Anwendung a1;
+    private Patient P;
     /**
      * Creates new form impfenGUI
      */
@@ -663,7 +664,7 @@ public class impfenGUI extends javax.swing.JFrame {
 
     private void tfHzfNameActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
-        Patientenname = evt.paramString();
+        Patientenname = tfHzfName.getText();
     }                                         
 
     private void btImpfenImpfenActionPerformed(java.awt.event.ActionEvent evt) {                                               
@@ -708,39 +709,47 @@ public class impfenGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(Patientenname != null)
         {
-        a1.PatientSuchen(Patientenname);
+        P = a1.PatientSuchen(Patientenname);
         Patientenname = null;
+        tfDatenPatientName.setText("" + P);
     }
     }                                        
 
     private void tfHzfGebActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        Geburtsdatum = evt.paramString();
+        Geburtsdatum = tfHzfGeb.getText();
     }                                        
 
     private void tfHzfGeschlActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-        Geschlecht = evt.paramString();
+        Geschlecht = tfHzfGeschl.getText();
+        
     }                                           
 
     private void tfHzfAdrActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        Adresse = evt.paramString();
+        Adresse = tfHzfAdr.getText();
+        
     }                                        
 
     private void tfHzfNumActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        Telefonnummer = evt.paramString();
+        Telefonnummer = tfHzfNum.getText();
     }                                        
 
     private void btHzfActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
         a1.PatientHinzufuegen(Patientenname, Geburtsdatum, Geschlecht, Adresse, Telefonnummer);
         Patientenname = null;
+        tfHzfName.setText("Name eingeben");
         Geburtsdatum = null;
+        tfHzfGeb.setText("Geburtstag");
         Geschlecht = null; 
+        tfHzfGeschl.setText("Geschlecht");
         Adresse = null; 
+        tfHzfAdr.setText("Adresse");
         Telefonnummer= null;
+        tfHzfNum.setText("Telefonnummer");
     }                                     
 
     private void tfLoeschenNameActionPerformed(java.awt.event.ActionEvent evt) {                                               
@@ -753,6 +762,7 @@ public class impfenGUI extends javax.swing.JFrame {
 
     private void tfDatenPatientNameActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
+        tfDatenPatientName.setEditable(false);
     }                                                  
 
     private void tfDatenZuAendernActionPerformed(java.awt.event.ActionEvent evt) {                                                 
